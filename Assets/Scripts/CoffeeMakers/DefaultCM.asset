@@ -22,6 +22,6 @@ MonoBehaviour:
   brewTimeSeconds: 5
   coffeeProduced: 1
   sellPrice: 5
-  beansRequired: 10
+  beansRequired: 5
   purchaseCost: 100
   unlockLevel: 1

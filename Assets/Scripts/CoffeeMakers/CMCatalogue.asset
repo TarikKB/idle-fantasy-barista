@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeMakerDatabase
   coffeeMakers:
   - {fileID: 11400000, guid: e9f5a28725995de4faab964a37b9bf35, type: 2}
+  - {fileID: 11400000, guid: 9af0bc523a1148142bd453599ad11fcc, type: 2}
+  - {fileID: 11400000, guid: 5446c1308093b5d4cb36921b705c5351, type: 2}

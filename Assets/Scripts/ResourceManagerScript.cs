@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ResourceManagerScript : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ResourceManagerScript : MonoBehaviour
     public TextMeshProUGUI goldText;
     public float gold {get; private set;}
     public float sellPriceMultiplier = 1f;
+    [SerializeField] private InputAction increaseGoldKey;
 
     [Header("Beans")]
     public TextMeshProUGUI beansText;
@@ -23,10 +25,15 @@ public class ResourceManagerScript : MonoBehaviour
     [SerializeField] private int[] levelUpCosts;
     public float xp {get; private set;}
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void OnEnable()
+    {
+        increaseGoldKey.Enable();
+        increaseGoldKey.performed += ctx => AddGold(10);
+    }
+
     void Start()
     {
-        
+        AddGold(100);
     }
 
     // Update is called once per frame
@@ -80,4 +87,6 @@ public class ResourceManagerScript : MonoBehaviour
     {
         levelText.text = "Level: " + level.ToString();
     }
+
+    
 }

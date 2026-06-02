@@ -2,13 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CoffeeManagerScript : MonoBehaviour
 {
-
-    // [SerializeField] private float beansPerCoffee = 10f;
-    // [SerializeField] private float coffeePrice = 5f;
-    // [SerializeField] private float coffeeBrewTime = 2f;
 
     public CMData coffeeMakerData;
 
@@ -16,33 +13,55 @@ public class CoffeeManagerScript : MonoBehaviour
 
     private Image makerSprite;
 
+    private Slider brewProgressSlider;
+
+    private MenuManagerScript menuManager;
+
     [SerializeField] private bool brewing = false;
     
     [SerializeField] private bool readyToSell = false;
 
     private int currentIconIndex = 0;
 
+    private bool empty = true;
+
 
     void Start()
     {
+        menuManager = FindFirstObjectByType<MenuManagerScript>();
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
+
         GameObject spriteObj = transform.GetChild(0).gameObject;
         makerSprite = spriteObj.GetComponent<Image>();
+        
+        brewProgressSlider = GetComponentInChildren<Slider>();
+        
+        SetCoffeeMakerData(coffeeMakerData);
+    }
+
+    public void SetCoffeeMakerData(CMData data)
+    {
+        coffeeMakerData = data;
         if (coffeeMakerData != null && coffeeMakerData.icons.Length > 0)
         {
             makerSprite.sprite = coffeeMakerData.icons[0];
-        } else
-        {
-            makerSprite.gameObject.SetActive(false);
+            makerSprite.preserveAspect = true;
+            makerSprite.gameObject.SetActive(true);
+            empty = false;
         }
     }
 
     public void OnClick()
     {
+        if (empty)
+        {
+            // make this pop up the coffee maker catalogue
+            menuManager.ToggleCatalogue(this);
+            return;
+        }
         if (!brewing && !readyToSell)
         {
             BrewCoffee();
-            print("Brewing coffee...");
         }
         else if (readyToSell)
         {
@@ -54,10 +73,14 @@ public class CoffeeManagerScript : MonoBehaviour
     {
         if (resourceManager.beans >= coffeeMakerData.beansRequired)
         {
+            print("Brewing coffee...");
             resourceManager.AddBeans(-coffeeMakerData.beansRequired);
             brewing = true;
             StartCoroutine(BrewCoffeeCoroutine());
             StartCoroutine(UpdateMakerSpriteCoroutine());
+            DOTween.To(() => brewProgressSlider.value, x => brewProgressSlider.value = x, 1f, coffeeMakerData.brewTimeSeconds)
+                .SetEase(Ease.Linear)
+                .OnComplete(() => brewProgressSlider.value = 0f);
         }
     }
 
@@ -75,6 +98,7 @@ public class CoffeeManagerScript : MonoBehaviour
     IEnumerator BrewCoffeeCoroutine()
     {
         yield return new WaitForSeconds(coffeeMakerData.brewTimeSeconds);
+
         brewing = false;
         readyToSell = true;
     }
@@ -83,6 +107,7 @@ public class CoffeeManagerScript : MonoBehaviour
     {
         if (readyToSell)
         {
+            print("Selling coffee...");
             resourceManager.AddGold(coffeeMakerData.sellPrice);
             readyToSell = false;
             currentIconIndex = 0;
