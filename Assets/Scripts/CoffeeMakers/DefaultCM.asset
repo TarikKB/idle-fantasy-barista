@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7a07be2fc531a40b90af6ffb08adaa, type: 3}
+  m_Name: DefaultCM
+  m_EditorClassIdentifier: Assembly-CSharp::CoffeeMakerData
+  coffeeMakerName: Coffee Maker
+  icons:
+  - {fileID: 537456682440410332, guid: 8e0e0ba8ceb384b4fb9bc169b94b3e2b, type: 3}
+  - {fileID: 8518554277594224505, guid: 8e0e0ba8ceb384b4fb9bc169b94b3e2b, type: 3}
+  - {fileID: -7711973368010392626, guid: 8e0e0ba8ceb384b4fb9bc169b94b3e2b, type: 3}
+  - {fileID: 4790769862062825285, guid: 8e0e0ba8ceb384b4fb9bc169b94b3e2b, type: 3}
+  - {fileID: -2962785433909815356, guid: 8e0e0ba8ceb384b4fb9bc169b94b3e2b, type: 3}
+  brewTimeSeconds: 5
+  coffeeProduced: 1
+  sellPrice: 5
+  beansRequired: 10
+  purchaseCost: 100
+  unlockLevel: 1
