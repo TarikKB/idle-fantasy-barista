@@ -319,7 +319,7 @@ ScriptedImporter:
     mosaicPosition: {x: 83, y: 4}
     flatten: 0
     isImported: 1
-    isVisible: 1
+    isVisible: 0
   - name: 75 Percent
     spriteName: 75 Percent
     isGroup: 0

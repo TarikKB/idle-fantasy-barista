@@ -36,7 +36,16 @@ public class CoffeeManagerScript : MonoBehaviour
         
         brewProgressSlider = GetComponentInChildren<Slider>();
         
-        SetCoffeeMakerData(coffeeMakerData);
+        if (coffeeMakerData != null && coffeeMakerData.icons.Length > 0)
+        {
+            makerSprite.sprite = coffeeMakerData.icons[0];
+            makerSprite.preserveAspect = true;
+            makerSprite.gameObject.SetActive(true);
+            empty = false;
+        } else
+        {
+            makerSprite.gameObject.SetActive(false);
+        }
     }
 
     public void SetCoffeeMakerData(CMData data)
