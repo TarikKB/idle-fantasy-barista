@@ -11,6 +11,8 @@ public class CMListing : MonoBehaviour
 
     public CoffeeManagerScript currentCoffeeMaker;
 
+    private MenuManagerScript menuManager;
+
 
     [SerializeField] private Image iconImage;
     [SerializeField] private TextMeshProUGUI statsText;
@@ -19,6 +21,7 @@ public class CMListing : MonoBehaviour
     void Start()
     {
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
+        menuManager = FindFirstObjectByType<MenuManagerScript>();
 
         
     }
@@ -52,6 +55,7 @@ public class CMListing : MonoBehaviour
             {
                 resourceManager.AddGold(-coffeeMakerData.purchaseCost);
                 currentCoffeeMaker.SetCoffeeMakerData(coffeeMakerData);
+                menuManager.CloseActivePanel();
             }
             else
             {
