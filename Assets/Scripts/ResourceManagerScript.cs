@@ -70,22 +70,22 @@ public class ResourceManagerScript : MonoBehaviour
 
     private void UpdateGoldText()
     {
-        goldText.text = "Gold: " + gold.ToString("F0");
+        goldText.text = gold.ToString("F0");
     }
 
     private void UpdateBeansText()
     {
-        beansText.text = "Beans: " + beans.ToString("F0");
+        beansText.text = beans.ToString("F0");
     }
 
     private void UpdateTicketsText()
     {
-        ticketsText.text = "Tickets: " + tickets.ToString("F0");
+        ticketsText.text = tickets.ToString("F0");
     }
 
     private void UpdateLevelText()
     {
-        levelText.text = "Level: " + level.ToString();
+        levelText.text = level.ToString();
     }
 
     
