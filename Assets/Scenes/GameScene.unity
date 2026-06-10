@@ -273,6 +273,23 @@ MonoBehaviour:
       m_Action: Increase Gold Key
       m_Flags: 0
     m_Flags: 0
+  increaseBeansKey:
+    m_Name: Increase Beans Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c73b6f8b-3e4e-4667-a4ff-137cd2004ca6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 52c0e7ce-539e-4fc2-8ebd-904ccbc590e1
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Increase Beans Key
+      m_Flags: 0
+    m_Flags: 0
   beansText: {fileID: 1775339150}
   beanRate: 2
   ticketsText: {fileID: 2107893743}

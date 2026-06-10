@@ -8,13 +8,15 @@ public class CustomerScript : MonoBehaviour
     [SerializeField] float jumpDuration = 0.125f;
     Tween jumpTween;
 
+
     public void MoveUpLine(Transform nextPoint)
     {
         transform.DOKill();
-
+        
         float dist = Vector3.Distance(transform.position, nextPoint.position);
         float moveDuration = dist / speed;
-        float baseY = transform.position.y;
+        float baseY = nextPoint.position.y;
+        transform.position = new Vector3(transform.position.x, baseY, transform.position.z);
 
         transform.DOMove(nextPoint.position, moveDuration)
             .SetEase(Ease.Linear)
