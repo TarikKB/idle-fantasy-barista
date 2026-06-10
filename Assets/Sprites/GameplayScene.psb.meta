@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3da8559728686374b9f420cdbdd1e316
+guid: eced8faa44184a94aaf78396a124ecfc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 1
+    spritePixelsToUnits: 50
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -83,7 +83,7 @@ ScriptedImporter:
       y: 0
       width: 0
       height: 0
-    spriteID: a8fc1df6bf57e7b4c906a6211d1ef39b
+    spriteID: 2f9d963b7d91589459ccb0e8b40adaeb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -95,29 +95,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: FinishedCoffee
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 84
-      width: 32
-      height: 25
-    spriteID: 55861eae1ad250545af2d90bb799c7b0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 84}
-    spritePosition: {x: 0, y: 4}
-  - name: 75 Percent
+  - name: Ceiling
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -126,10 +104,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
-      width: 32
-      height: 32
-    spriteID: a491cbbaefc0a2048a43b9655e2591ce
+      y: 996
+      width: 640
+      height: 191
+    spriteID: 05bbb501b5e76fc47aabc4cf6a2e33c3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -137,9 +115,75 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: 50 Percent
+    uvTransform: {x: 4, y: 996}
+    spritePosition: {x: 0, y: 449}
+  - name: CoffeeMakers
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 652
+      y: 1195
+      width: 53
+      height: 96
+    spriteID: 21cb1660f9171734a9c4ccca9f10268c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 652, y: 1195}
+    spritePosition: {x: 587, y: 261}
+  - name: Bar
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 713
+      y: 1195
+      width: 44
+      height: 48
+    spriteID: 019d843cf5f0c2d44b8990dda25372c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 713, y: 1195}
+    spritePosition: {x: 518, y: 158}
+  - name: Tables
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 765
+      y: 1195
+      width: 61
+      height: 29
+    spriteID: 366bd11b1c0bdd948b333e5e44e65400
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 765, y: 1195}
+    spritePosition: {x: 289, y: 158}
+  - name: Floor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -148,10 +192,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 44
-      width: 32
-      height: 32
-    spriteID: 341d4720bfdbd02439fc14dc61ff3eea
+      y: 1195
+      width: 640
+      height: 158
+    spriteID: 91ce0a7f6cfe88e4d891194c84f24106
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,9 +203,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 44}
+    uvTransform: {x: 4, y: 1195}
     spritePosition: {x: 0, y: 0}
-  - name: 25 Percent
+  - name: Walls
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -170,10 +214,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 84
-      width: 32
-      height: 32
-    spriteID: eff45f8312e10bc40959fbdd23f57c10
+      y: 652
+      width: 640
+      height: 336
+    spriteID: e6ca634edab3a4641b79aef8b3f0a39e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,30 +225,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 84}
-    spritePosition: {x: 0, y: 0}
-  - name: EmptyMaker
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 4
-      width: 32
-      height: 32
-    spriteID: 27ad3a67f077b854c94802fc47e979ff
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 4}
-    spritePosition: {x: 0, y: 0}
+    uvTransform: {x: 4, y: 652}
+    spritePosition: {x: 0, y: 157}
   - name: Background
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -213,11 +235,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 44
-      y: 44
-      width: 32
-      height: 32
-    spriteID: 4bec5672d1f0a8d4bb75466abcd5fce6
+      x: 4
+      y: 4
+      width: 640
+      height: 640
+    spriteID: 80656c9b843eed34d8d37b4adb5c4d61
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -225,7 +247,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 44}
+    uvTransform: {x: 4, y: 4}
     spritePosition: {x: 0, y: 0}
   spriteImportData: []
   rigSpriteImportData: []
@@ -286,7 +308,7 @@ ScriptedImporter:
   characterMode: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
-  importHiddenLayers: 1
+  importHiddenLayers: 0
   layerMappingOption: 2
   generatePhysicsShape: 0
   paperDollMode: 0
@@ -310,53 +332,63 @@ ScriptedImporter:
   resliceFromLayer: 1
   pSDLayerImportSetting: []
   psdLayers:
-  - name: FinishedCoffee
-    spriteName: FinishedCoffee
+  - name: Ceiling
+    spriteName: Ceiling
     isGroup: 0
     parentIndex: -1
-    spriteID: 55861eae1ad250545af2d90bb799c7b0
-    layerID: 8
-    mosaicPosition: {x: 44, y: 84}
-    flatten: 0
-    isImported: 1
-    isVisible: 0
-  - name: 75 Percent
-    spriteName: 75 Percent
-    isGroup: 0
-    parentIndex: -1
-    spriteID: a491cbbaefc0a2048a43b9655e2591ce
-    layerID: 7
-    mosaicPosition: {x: 4, y: 4}
+    spriteID: 05bbb501b5e76fc47aabc4cf6a2e33c3
+    layerID: 14
+    mosaicPosition: {x: 4, y: 996}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: 50 Percent
-    spriteName: 50 Percent
+  - name: CoffeeMakers
+    spriteName: CoffeeMakers
     isGroup: 0
     parentIndex: -1
-    spriteID: 341d4720bfdbd02439fc14dc61ff3eea
-    layerID: 6
-    mosaicPosition: {x: 4, y: 44}
+    spriteID: 21cb1660f9171734a9c4ccca9f10268c
+    layerID: 25
+    mosaicPosition: {x: 652, y: 1195}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: 25 Percent
-    spriteName: 25 Percent
+  - name: Bar
+    spriteName: Bar
     isGroup: 0
     parentIndex: -1
-    spriteID: eff45f8312e10bc40959fbdd23f57c10
-    layerID: 5
-    mosaicPosition: {x: 4, y: 84}
+    spriteID: 019d843cf5f0c2d44b8990dda25372c0
+    layerID: 4
+    mosaicPosition: {x: 713, y: 1195}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: EmptyMaker
-    spriteName: EmptyMaker
+  - name: Tables
+    spriteName: Tables
     isGroup: 0
     parentIndex: -1
-    spriteID: 27ad3a67f077b854c94802fc47e979ff
+    spriteID: 366bd11b1c0bdd948b333e5e44e65400
+    layerID: 3
+    mosaicPosition: {x: 765, y: 1195}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Floor
+    spriteName: Floor
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 91ce0a7f6cfe88e4d891194c84f24106
     layerID: 2
-    mosaicPosition: {x: 44, y: 4}
+    mosaicPosition: {x: 4, y: 1195}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Walls
+    spriteName: Walls
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e6ca634edab3a4641b79aef8b3f0a39e
+    layerID: 5
+    mosaicPosition: {x: 4, y: 652}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -364,17 +396,17 @@ ScriptedImporter:
     spriteName: Background
     isGroup: 0
     parentIndex: -1
-    spriteID: 4bec5672d1f0a8d4bb75466abcd5fce6
+    spriteID: 80656c9b843eed34d8d37b4adb5c4d61
     layerID: 1
-    mosaicPosition: {x: 44, y: 44}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
-    isVisible: 0
+    isVisible: 1
   mosaicPSDLayers: []
   rigPSDLayers: []
   sharedRigPSDLayers: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639160051410196064
+  platformSettingsDirtyTick: 639166911978084662
   spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 

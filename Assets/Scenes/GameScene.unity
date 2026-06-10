@@ -119,6 +119,97 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13978544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13978546}
+  - component: {fileID: 13978545}
+  m_Layer: 0
+  m_Name: Ceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &13978545
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13978544}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -7650598738430766653, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.8, y: 1.88}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &13978546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13978544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33530192
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +415,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34610686}
   m_CullTransparentMesh: 1
+--- !u!1 &56781608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56781610}
+  - component: {fileID: 56781609}
+  m_Layer: 0
+  m_Name: Table (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &56781609
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56781608}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -8744522179966231593, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.74, y: 0.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &56781610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56781608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2, y: 1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &145491143
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +774,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190666963}
   m_CullTransparentMesh: 1
+--- !u!1 &192905323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192905325}
+  - component: {fileID: 192905324}
+  m_Layer: 0
+  m_Name: Walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &192905324
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192905323}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -20
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 1713244184514055689, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.8, y: 12.8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &192905325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192905323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &214748742 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4375676649321580925, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
@@ -871,6 +1144,110 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224781320}
   m_CullTransparentMesh: 1
+--- !u!1 &254243592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254243593}
+  - component: {fileID: 254243595}
+  - component: {fileID: 254243594}
+  m_Layer: 0
+  m_Name: Slot 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &254243593
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254243592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2008916669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.040934086, y: -0.55999994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &254243594
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254243592}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 31, y: 32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!222 &254243595
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254243592}
+  m_CullTransparentMesh: 1
 --- !u!224 &256607536 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4375676649321580925, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
@@ -1083,6 +1460,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1096,6 +1489,110 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+--- !u!1 &498046223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498046224}
+  - component: {fileID: 498046226}
+  - component: {fileID: 498046225}
+  m_Layer: 0
+  m_Name: Slot 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &498046224
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498046223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2008916669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.040934086, y: 1.2800002}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &498046225
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498046223}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 31, y: 30}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!222 &498046226
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498046223}
+  m_CullTransparentMesh: 1
 --- !u!1001 &564386966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1204,6 +1701,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1450,6 +1963,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634062749}
   m_CullTransparentMesh: 1
+--- !u!1 &659867136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659867138}
+  - component: {fileID: 659867137}
+  m_Layer: 0
+  m_Name: Table (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &659867137
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659867136}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -8744522179966231593, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.74, y: 0.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &659867138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659867136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2, y: 1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &667898239 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4375676649321580925, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
@@ -1563,6 +2167,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1684,6 +2304,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1870,7 +2506,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 926087681}
-  - component: {fileID: 926087682}
   m_Layer: 5
   m_Name: CoffeeGrid
   m_TagString: Untagged
@@ -1917,19 +2552,97 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 22.884155}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &926087682
-MonoBehaviour:
+--- !u!1 &948496549
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926087680}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948496551}
+  - component: {fileID: 948496550}
+  m_Layer: 0
+  m_Name: Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &948496550
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948496549}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01760b9f79ca7049aa800930df9672f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MakerManagerScript
-  coffeeMakers: []
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -2927148744137890168, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.88, y: 0.96}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &948496551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948496549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.72, y: 2.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &972295160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2038,6 +2751,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2092,6 +2821,201 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4375676649321580925, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
   m_PrefabInstance: {fileID: 1342574542}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1044141211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044141212}
+  - component: {fileID: 1044141214}
+  - component: {fileID: 1044141213}
+  m_Layer: 0
+  m_Name: Slot 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1044141212
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044141211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2008916669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.040934086, y: 0.44000006}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &1044141213
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044141211}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 31, y: 30}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_SpriteSortPoint: 0
+--- !u!222 &1044141214
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044141211}
+  m_CullTransparentMesh: 1
+--- !u!1 &1078452530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078452532}
+  - component: {fileID: 1078452531}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1078452531
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078452530}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -6929481429056227365, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 640, y: 158}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1078452532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078452530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1130437041 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4375676649321580925, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
@@ -2205,6 +3129,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2407,6 +3347,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2609,6 +3565,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2805,6 +3777,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2926,6 +3914,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3108,8 +4112,8 @@ Canvas:
   m_GameObject: {fileID: 1411356421}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1559066288}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3120,7 +4124,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1452365016
 GameObject:
@@ -3363,6 +4367,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3505,7 +4525,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
+  m_BackGroundColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3530,7 +4550,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3804,6 +4824,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4062,6 +5098,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4168,7 +5220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1792919635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4381,6 +5433,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4502,6 +5570,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4623,6 +5707,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4749,6 +5849,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5003,6 +6119,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5016,6 +6148,100 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+--- !u!1 &2008916667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008916669}
+  - component: {fileID: 2008916668}
+  m_Layer: 0
+  m_Name: CoffeeMakerShelves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2008916668
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008916667}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -5120948539845573919, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.04, y: 2.36}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &2008916669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008916667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.019066, y: 3.6799998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 254243593}
+  - {fileID: 1044141212}
+  - {fileID: 498046224}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009008781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,6 +6571,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5448,6 +6690,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076915103}
   m_CullTransparentMesh: 1
+--- !u!1 &2093153906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093153908}
+  - component: {fileID: 2093153907}
+  m_Layer: 0
+  m_Name: Table (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2093153907
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093153906}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -8744522179966231593, guid: eced8faa44184a94aaf78396a124ecfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.74, y: 0.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &2093153908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093153906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2107893741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,6 +7026,22 @@ PrefabInstance:
       propertyPath: coffeeMakerData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: shelfSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254243594}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1044141213}
+    - target: {fileID: 6795801362484611176, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
+      propertyPath: 'shelfSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 498046225}
     - target: {fileID: 9083986816953017452, guid: 2bc9e64a0d85efa4984b029e1795d30e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5711,7 +7060,15 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1559066289}
-  - {fileID: 1411356422}
-  - {fileID: 277594961}
   - {fileID: 33530193}
   - {fileID: 1813997354}
+  - {fileID: 277594961}
+  - {fileID: 1411356422}
+  - {fileID: 1078452532}
+  - {fileID: 659867138}
+  - {fileID: 56781610}
+  - {fileID: 2093153908}
+  - {fileID: 948496551}
+  - {fileID: 13978546}
+  - {fileID: 2008916669}
+  - {fileID: 192905325}

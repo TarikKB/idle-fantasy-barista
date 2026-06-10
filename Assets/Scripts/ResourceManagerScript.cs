@@ -28,7 +28,7 @@ public class ResourceManagerScript : MonoBehaviour
     private void OnEnable()
     {
         increaseGoldKey.Enable();
-        increaseGoldKey.performed += ctx => AddGold(10);
+        increaseGoldKey.performed += ctx => AddGold(1000);
     }
 
     void Start()

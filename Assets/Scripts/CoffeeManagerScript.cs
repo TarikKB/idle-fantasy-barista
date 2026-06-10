@@ -25,6 +25,8 @@ public class CoffeeManagerScript : MonoBehaviour
 
     private bool empty = true;
 
+    [SerializeField] private SpriteRenderer[] shelfSprites;
+
 
     void Start()
     {
@@ -57,6 +59,14 @@ public class CoffeeManagerScript : MonoBehaviour
             makerSprite.preserveAspect = true;
             makerSprite.gameObject.SetActive(true);
             empty = false;
+            for (int i = 0; i < shelfSprites.Length; i++)
+            {
+                if (shelfSprites[i].sprite == null)
+                {
+                    shelfSprites[i].sprite = coffeeMakerData.icons[0];
+                    break;
+                }
+            }
         }
     }
 
