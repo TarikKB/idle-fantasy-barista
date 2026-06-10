@@ -27,11 +27,14 @@ public class CoffeeManagerScript : MonoBehaviour
 
     [SerializeField] private SpriteRenderer[] shelfSprites;
 
+    private LineScript lineManager;
+
 
     void Start()
     {
         menuManager = FindFirstObjectByType<MenuManagerScript>();
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
+        lineManager = FindFirstObjectByType<LineScript>();
 
         GameObject spriteObj = transform.GetChild(0).gameObject;
         makerSprite = spriteObj.GetComponent<Image>();
@@ -131,6 +134,7 @@ public class CoffeeManagerScript : MonoBehaviour
             readyToSell = false;
             currentIconIndex = 0;
             makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
+            lineManager.AddCustomerToLine();
         }
     }
 }

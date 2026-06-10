@@ -147,10 +147,10 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 713
+      x: 782
       y: 1195
-      width: 44
-      height: 48
+      width: 20
+      height: 28
     spriteID: 019d843cf5f0c2d44b8990dda25372c0
     spriteBone: []
     spriteOutline: []
@@ -159,8 +159,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 713, y: 1195}
-    spritePosition: {x: 518, y: 158}
+    uvTransform: {x: 782, y: 1195}
+    spritePosition: {x: 530, y: 158}
   - name: Tables
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -169,7 +169,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 765
+      x: 713
       y: 1195
       width: 61
       height: 29
@@ -181,7 +181,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 765, y: 1195}
+    uvTransform: {x: 713, y: 1195}
     spritePosition: {x: 289, y: 158}
   - name: Floor
     originalName: 
@@ -358,7 +358,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 019d843cf5f0c2d44b8990dda25372c0
     layerID: 4
-    mosaicPosition: {x: 713, y: 1195}
+    mosaicPosition: {x: 782, y: 1195}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -368,7 +368,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 366bd11b1c0bdd948b333e5e44e65400
     layerID: 3
-    mosaicPosition: {x: 765, y: 1195}
+    mosaicPosition: {x: 713, y: 1195}
     flatten: 0
     isImported: 1
     isVisible: 1
