@@ -59,7 +59,7 @@ public class CMListing : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not enough money to purchase this coffee maker.");
+                // Debug.Log("Not enough money to purchase this coffee maker.");
             }
         }
     }

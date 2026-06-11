@@ -11,7 +11,7 @@ public class CoffeeManagerScript : MonoBehaviour
 
     private ResourceManagerScript resourceManager;
 
-    private Image makerSprite;
+    [SerializeField] private Image makerSprite;
 
     private Slider brewProgressSlider;
 
@@ -36,8 +36,8 @@ public class CoffeeManagerScript : MonoBehaviour
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
         lineManager = FindFirstObjectByType<LineScript>();
 
-        GameObject spriteObj = transform.GetChild(0).gameObject;
-        makerSprite = spriteObj.GetComponent<Image>();
+        // GameObject spriteObj = transform.GetChild(2).gameObject;
+        // makerSprite = spriteObj.GetComponent<Image>();
         
         brewProgressSlider = GetComponentInChildren<Slider>();
         
@@ -95,7 +95,7 @@ public class CoffeeManagerScript : MonoBehaviour
     {
         if (resourceManager.beans >= coffeeMakerData.beansRequired)
         {
-            print("Brewing coffee...");
+            // print("Brewing coffee...");
             resourceManager.AddBeans(-coffeeMakerData.beansRequired);
             brewing = true;
             StartCoroutine(BrewCoffeeCoroutine());
@@ -129,7 +129,7 @@ public class CoffeeManagerScript : MonoBehaviour
     {
         if (readyToSell)
         {
-            print("Selling coffee...");
+            // print("Selling coffee...");
             resourceManager.AddGold(coffeeMakerData.sellPrice);
             readyToSell = false;
             currentIconIndex = 0;

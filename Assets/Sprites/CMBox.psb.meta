@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eced8faa44184a94aaf78396a124ecfc
+guid: aecd5227b9de7784b9f2c4dbb422c898
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 50
+    spritePixelsToUnits: 1
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -83,7 +83,7 @@ ScriptedImporter:
       y: 0
       width: 0
       height: 0
-    spriteID: 2f9d963b7d91589459ccb0e8b40adaeb
+    spriteID: 6ac9855095c421e4085b9703495c1cac
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -95,138 +95,6 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: Ceiling
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 996
-      width: 640
-      height: 191
-    spriteID: 05bbb501b5e76fc47aabc4cf6a2e33c3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 996}
-    spritePosition: {x: 0, y: 449}
-  - name: CoffeeMakers
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 652
-      y: 1195
-      width: 53
-      height: 96
-    spriteID: 21cb1660f9171734a9c4ccca9f10268c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 652, y: 1195}
-    spritePosition: {x: 587, y: 261}
-  - name: Bar
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 782
-      y: 1195
-      width: 20
-      height: 29
-    spriteID: 019d843cf5f0c2d44b8990dda25372c0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 782, y: 1195}
-    spritePosition: {x: 530, y: 158}
-  - name: Tables
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 713
-      y: 1195
-      width: 61
-      height: 30
-    spriteID: 366bd11b1c0bdd948b333e5e44e65400
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 713, y: 1195}
-    spritePosition: {x: 289, y: 158}
-  - name: Floor
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 1195
-      width: 640
-      height: 158
-    spriteID: 91ce0a7f6cfe88e4d891194c84f24106
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 1195}
-    spritePosition: {x: 0, y: 0}
-  - name: Walls
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 652
-      width: 640
-      height: 336
-    spriteID: e6ca634edab3a4641b79aef8b3f0a39e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 652}
-    spritePosition: {x: 0, y: 157}
   - name: Background
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -237,9 +105,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 640
-      height: 640
-    spriteID: 80656c9b843eed34d8d37b4adb5c4d61
+      width: 64
+      height: 64
+    spriteID: 48dcd76645955634e85838804867b953
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -248,6 +116,50 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
+  - name: Platform
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 64
+      height: 18
+    spriteID: 8e93e298798247144a86b476301025c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+    spritePosition: {x: 0, y: 0}
+  - name: Background
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 64
+      height: 64
+    spriteID: f20ce16f5619ef44b935da32564cbfd2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
     spritePosition: {x: 0, y: 0}
   spriteImportData: []
   rigSpriteImportData: []
@@ -272,7 +184,7 @@ ScriptedImporter:
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -308,7 +220,7 @@ ScriptedImporter:
   characterMode: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
-  importHiddenLayers: 0
+  importHiddenLayers: 1
   layerMappingOption: 2
   generatePhysicsShape: 0
   paperDollMode: 0
@@ -332,63 +244,23 @@ ScriptedImporter:
   resliceFromLayer: 1
   pSDLayerImportSetting: []
   psdLayers:
-  - name: Ceiling
-    spriteName: Ceiling
+  - name: Background
+    spriteName: Background
     isGroup: 0
     parentIndex: -1
-    spriteID: 05bbb501b5e76fc47aabc4cf6a2e33c3
-    layerID: 14
-    mosaicPosition: {x: 4, y: 996}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: CoffeeMakers
-    spriteName: CoffeeMakers
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 21cb1660f9171734a9c4ccca9f10268c
-    layerID: 25
-    mosaicPosition: {x: 652, y: 1195}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Bar
-    spriteName: Bar
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 019d843cf5f0c2d44b8990dda25372c0
-    layerID: 4
-    mosaicPosition: {x: 782, y: 1195}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Tables
-    spriteName: Tables
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 366bd11b1c0bdd948b333e5e44e65400
+    spriteID: 48dcd76645955634e85838804867b953
     layerID: 3
-    mosaicPosition: {x: 713, y: 1195}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
-    isVisible: 1
-  - name: Floor
-    spriteName: Floor
+    isVisible: 0
+  - name: Platform
+    spriteName: Platform
     isGroup: 0
     parentIndex: -1
-    spriteID: 91ce0a7f6cfe88e4d891194c84f24106
+    spriteID: 8e93e298798247144a86b476301025c8
     layerID: 2
-    mosaicPosition: {x: 4, y: 1195}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Walls
-    spriteName: Walls
-    isGroup: 0
-    parentIndex: -1
-    spriteID: e6ca634edab3a4641b79aef8b3f0a39e
-    layerID: 5
-    mosaicPosition: {x: 4, y: 652}
+    mosaicPosition: {x: 4, y: 148}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -396,17 +268,17 @@ ScriptedImporter:
     spriteName: Background
     isGroup: 0
     parentIndex: -1
-    spriteID: 80656c9b843eed34d8d37b4adb5c4d61
+    spriteID: f20ce16f5619ef44b935da32564cbfd2
     layerID: 1
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 4, y: 76}
     flatten: 0
     isImported: 1
-    isVisible: 1
+    isVisible: 0
   mosaicPSDLayers: []
   rigPSDLayers: []
   sharedRigPSDLayers: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639166911978084662
+  platformSettingsDirtyTick: 639167814467972262
   spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 

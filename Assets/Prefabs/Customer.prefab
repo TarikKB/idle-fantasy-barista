@@ -104,6 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716d358e2b6e7aa429090a87b5617e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerScript
-  speed: 2
+  speed: 4
   jumpHeight: 0.1
   jumpDuration: 0.125
