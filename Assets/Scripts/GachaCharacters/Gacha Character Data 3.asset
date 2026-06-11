@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b2c53c979ace24e92ee499bc9be546, type: 3}
   m_Name: Gacha Character Data 3
   m_EditorClassIdentifier: Assembly-CSharp::GCData
-  characterName: 
-  tier: 0
+  characterName: Ian
+  tier: 4

@@ -6,7 +6,7 @@ public class GCTierScript : MonoBehaviour
 
     private TierGroup currentTier = TierGroup.CommonRare;
 
-    [SerializeField] private GCPopulateBoxesScript populateBoxes;
+    [SerializeField] private GCDisplayTierManager populateBoxes;
 
     void Start() => populateBoxes.PopulateTier(1, 2);
     

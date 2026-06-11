@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-public class GCPopulateBoxesScript : MonoBehaviour
+public class GCDisplayTierManager : MonoBehaviour
 {
     [SerializeField] private GCDatabase database;
     [SerializeField] private GameObject gachaCellPrefab;
@@ -12,6 +12,7 @@ public class GCPopulateBoxesScript : MonoBehaviour
     [SerializeField] private Color legendaryUnit = new Color(1f, 0.843f, 0f);
     [SerializeField] private Color errorColor = new Color(0f, 0f, 0f);
     [SerializeField] private int numUnitsPerTier = 1;
+    [SerializeField] private GCRosterManager roster;
 
     
     public void PopulateTier(int row1Tier, int row2Tier)
@@ -28,16 +29,18 @@ public class GCPopulateBoxesScript : MonoBehaviour
         foreach (GCData data in row1)
         {
             Color bgColor =  GetTierColor(row1Tier) ;
+            int level = roster != null ? roster.GetLevel(data) : 0;
             GameObject cellObj = Instantiate(gachaCellPrefab, unitDisplayGrid);
             GCCell cell = cellObj.GetComponent<GCCell>();
-            cell.Setup(data, bgColor); 
+            cell.Setup(data, bgColor, level); 
         }
         foreach (GCData data in row2)
         {
             Color bgColor =  GetTierColor(row2Tier) ;
+            int level = roster != null ? roster.GetLevel(data) : 0;
             GameObject cellObj = Instantiate(gachaCellPrefab, unitDisplayGrid);
             GCCell cell = cellObj.GetComponent<GCCell>();
-            cell.Setup(data, bgColor); 
+            cell.Setup(data, bgColor, level); 
         }
     }
 

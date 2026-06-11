@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56e92e1082d7894289fee6dffb22f7b, type: 3}
   m_Name: Gacha Character Database
   m_EditorClassIdentifier: Assembly-CSharp::GCDatabase
-  gachaCharacters: []
+  gachaCharacters:
+  - {fileID: 11400000, guid: c8969f2e60ae8c440be196377aaeb2ef, type: 2}
+  - {fileID: 11400000, guid: a573712639ea1d344b0c54a27b54e6a0, type: 2}
+  - {fileID: 11400000, guid: f0051acf1890d1d4c81fcac5b944fbd2, type: 2}
+  - {fileID: 11400000, guid: f6708db635cf3fa4aa5e6aaf20d8a23f, type: 2}
