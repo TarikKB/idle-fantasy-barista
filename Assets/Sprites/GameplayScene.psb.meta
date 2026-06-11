@@ -126,7 +126,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 652
-      y: 1195
+      y: 1378
       width: 53
       height: 96
     spriteID: 21cb1660f9171734a9c4ccca9f10268c
@@ -137,7 +137,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 652, y: 1195}
+    uvTransform: {x: 652, y: 1378}
     spritePosition: {x: 587, y: 261}
   - name: Bar
     originalName: 
@@ -147,10 +147,10 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 782
-      y: 1195
+      x: 713
+      y: 1416
       width: 20
-      height: 29
+      height: 55
     spriteID: 019d843cf5f0c2d44b8990dda25372c0
     spriteBone: []
     spriteOutline: []
@@ -159,8 +159,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 782, y: 1195}
-    spritePosition: {x: 530, y: 158}
+    uvTransform: {x: 713, y: 1416}
+    spritePosition: {x: 530, y: 132}
   - name: Tables
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -170,7 +170,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 713
-      y: 1195
+      y: 1378
       width: 61
       height: 30
     spriteID: 366bd11b1c0bdd948b333e5e44e65400
@@ -181,9 +181,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 713, y: 1195}
+    uvTransform: {x: 713, y: 1378}
     spritePosition: {x: 289, y: 158}
-  - name: Floor
+  - name: WoodFloor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -194,6 +194,28 @@ ScriptedImporter:
       x: 4
       y: 1195
       width: 640
+      height: 175
+    spriteID: 66c4a46e4a465024789d19adf22ea7ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1195}
+    spritePosition: {x: 0, y: 0}
+  - name: Floor
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1378
+      width: 640
       height: 158
     spriteID: 91ce0a7f6cfe88e4d891194c84f24106
     spriteBone: []
@@ -203,7 +225,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 1195}
+    uvTransform: {x: 4, y: 1378}
     spritePosition: {x: 0, y: 0}
   - name: Walls
     originalName: 
@@ -348,7 +370,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 21cb1660f9171734a9c4ccca9f10268c
     layerID: 25
-    mosaicPosition: {x: 652, y: 1195}
+    mosaicPosition: {x: 652, y: 1378}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -358,7 +380,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 019d843cf5f0c2d44b8990dda25372c0
     layerID: 4
-    mosaicPosition: {x: 782, y: 1195}
+    mosaicPosition: {x: 713, y: 1416}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -368,7 +390,17 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 366bd11b1c0bdd948b333e5e44e65400
     layerID: 3
-    mosaicPosition: {x: 713, y: 1195}
+    mosaicPosition: {x: 713, y: 1378}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: WoodFloor
+    spriteName: WoodFloor
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 66c4a46e4a465024789d19adf22ea7ca
+    layerID: 26
+    mosaicPosition: {x: 4, y: 1195}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -378,7 +410,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 91ce0a7f6cfe88e4d891194c84f24106
     layerID: 2
-    mosaicPosition: {x: 4, y: 1195}
+    mosaicPosition: {x: 4, y: 1378}
     flatten: 0
     isImported: 1
     isVisible: 1
