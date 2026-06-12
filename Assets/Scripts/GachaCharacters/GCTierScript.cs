@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GCTierScript : MonoBehaviour
 {
-    private enum TierGroup { CommonRare, EpicLegendary }
+    private enum TierGroup { CommonRare, EpicLegendary, Mythical }
 
     private TierGroup currentTier = TierGroup.CommonRare;
 
@@ -28,6 +28,17 @@ public class GCTierScript : MonoBehaviour
         }
         currentTier = TierGroup.EpicLegendary;
         populateBoxes.PopulateTier(3,4);
+    }
+
+    public void ShowMythical()
+    {
+        if (currentTier == TierGroup.Mythical)
+        {
+            return;
+        }
+        currentTier = TierGroup.Mythical;
+        populateBoxes.PopulateMythicalTier();
+        
     }
 };
     

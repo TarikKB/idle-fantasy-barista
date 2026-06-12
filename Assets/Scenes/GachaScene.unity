@@ -1393,9 +1393,15 @@ MonoBehaviour:
   rareUnit: {r: 0.9, g: 0.75, b: 0.2, a: 1}
   epicUnit: {r: 0.718, g: 0.431, b: 0.475, a: 1}
   legendaryUnit: {r: 1, g: 0.843, b: 0, a: 1}
+  mythicalUnit: {r: 0.33, g: 0, b: 0.11, a: 1}
   errorColor: {r: 0, g: 0, b: 0, a: 1}
-  numUnitsPerTier: 1
-  roster: {fileID: 0}
+  numUnitsPerTier: 4
+  roster: {fileID: 1058388043}
+  regularColumns: 4
+  regularRows: 2
+  mythicalColumns: 2
+  mythicalRows: 2
+  cellHeightToWidthRatio: 2.6
 --- !u!4 &557939871
 Transform:
   m_ObjectHideFlags: 0
@@ -3370,7 +3376,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1813508313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 557939869}
+        m_TargetAssemblyTypeName: GCTierScript, Assembly-CSharp
+        m_MethodName: ShowMythical
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1813508313
 MonoBehaviour:
   m_ObjectHideFlags: 0
