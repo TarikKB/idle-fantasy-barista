@@ -29,7 +29,6 @@ public class CoffeeManagerScript : MonoBehaviour
 
     private LineScript lineManager;
 
-
     void Start()
     {
         menuManager = FindFirstObjectByType<MenuManagerScript>();
