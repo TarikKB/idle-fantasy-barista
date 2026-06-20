@@ -27,8 +27,9 @@ public class CoffeeManagerScript : MonoBehaviour
 
     [SerializeField] private SpriteRenderer[] shelfSprites;
 
-    private LineScript lineManager;
+    [SerializeField] public GameObject sellIndicator;
 
+    private LineScript lineManager;
 
     void Start()
     {
@@ -53,6 +54,12 @@ public class CoffeeManagerScript : MonoBehaviour
         }
     }
 
+    public void SetSellIndicatorVisible(bool visible)
+    {
+        if (sellIndicator != null)
+            sellIndicator.SetActive(visible && !empty);
+    }
+
     public void SetCoffeeMakerData(CMData data)
     {
         coffeeMakerData = data;
@@ -75,10 +82,16 @@ public class CoffeeManagerScript : MonoBehaviour
 
     public void OnClick()
     {
-        if (empty)
+        if (empty && !menuManager.sellMode)
         {
             // make this pop up the coffee maker catalogue
             menuManager.ToggleCatalogue(this);
+            return;
+        } else if (menuManager.sellMode)
+        {
+            if (!empty){
+                menuManager.ToggleSellPanel(this);
+            }
             return;
         }
         if (!brewing && !readyToSell)
@@ -136,5 +149,46 @@ public class CoffeeManagerScript : MonoBehaviour
             makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
             lineManager.AddCustomerToLine();
         }
+    }
+
+    public bool CanSellMachine() => !brewing && !readyToSell;
+    public int GetSellValue() => Mathf.RoundToInt(coffeeMakerData.purchaseCost * 0.25f);
+    public bool TrySellMachine()
+    {
+        if (!CanSellMachine()) return false;
+        resourceManager.AddGold(GetSellValue());
+        ClearSoldMachine();
+        return true;
+    }
+
+    private void ClearSoldMachine()
+    {
+        StopAllCoroutines();
+        if (brewProgressSlider != null)
+        {
+            DOTween.Kill(brewProgressSlider);
+            brewProgressSlider.value = 0f;
+        }
+
+        if (coffeeMakerData != null && coffeeMakerData.icons.Length > 0)
+        {
+            Sprite icon = coffeeMakerData.icons[0];
+            for (int i = 0; i < shelfSprites.Length; i++)
+            {
+                if (shelfSprites[i].sprite == icon)
+                {
+                    shelfSprites[i].sprite = null;
+                    break;
+                }
+            }
+        }
+
+        coffeeMakerData = null;
+        brewing = false;
+        readyToSell = false;
+        currentIconIndex = 0;
+        empty = true;
+
+        makerSprite.gameObject.SetActive(false);
     }
 }

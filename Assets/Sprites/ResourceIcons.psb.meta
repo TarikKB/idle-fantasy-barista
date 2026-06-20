@@ -103,8 +103,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 103
-      y: 4
+      x: 31
+      y: 151
       width: 21
       height: 14
     spriteID: 40555ed52d284cd429982611c553a9b6
@@ -115,7 +115,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 103, y: 4}
+    uvTransform: {x: 31, y: 151}
     spritePosition: {x: 1, y: 27}
   - name: Tickets
     originalName: 
@@ -125,8 +125,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 103
-      y: 76
+      x: 4
+      y: 176
       width: 18
       height: 17
     spriteID: 8b01da693d89e6543b7964df3e9ab3f6
@@ -137,7 +137,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 103, y: 76}
+    uvTransform: {x: 4, y: 176}
     spritePosition: {x: 7, y: 23}
   - name: Beans
     originalName: 
@@ -147,8 +147,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 76
-      y: 76
+      x: 4
+      y: 151
       width: 19
       height: 17
     spriteID: 6be02767e130ee14eacf64dd64a77242
@@ -159,8 +159,30 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 76, y: 76}
+    uvTransform: {x: 4, y: 151}
     spritePosition: {x: 6, y: 24}
+  - name: RedX
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 40
+      height: 39
+    spriteID: 59ba84bb2d6197440b68f6432922c7ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+    spritePosition: {x: 9, y: 16}
   - name: Gold
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -169,8 +191,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 76
-      y: 4
+      x: 4
+      y: 201
       width: 19
       height: 16
     spriteID: 8e93e298798247144a86b476301025c8
@@ -181,7 +203,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 76, y: 4}
+    uvTransform: {x: 4, y: 201}
     spritePosition: {x: 6, y: 25}
   - name: BarBackground
     originalName: 
@@ -192,7 +214,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 76
+      y: 123
       width: 64
       height: 20
     spriteID: f0ac6e9a0b86a9c4bbc55560f880bb45
@@ -203,7 +225,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 76}
+    uvTransform: {x: 4, y: 123}
     spritePosition: {x: 0, y: 22}
   - name: Background
     originalName: 
@@ -316,17 +338,17 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 40555ed52d284cd429982611c553a9b6
     layerID: 13
-    mosaicPosition: {x: 103, y: 4}
+    mosaicPosition: {x: 31, y: 151}
     flatten: 0
     isImported: 1
-    isVisible: 1
+    isVisible: 0
   - name: Tickets
     spriteName: Tickets
     isGroup: 0
     parentIndex: -1
     spriteID: 8b01da693d89e6543b7964df3e9ab3f6
     layerID: 8
-    mosaicPosition: {x: 103, y: 76}
+    mosaicPosition: {x: 4, y: 176}
     flatten: 0
     isImported: 1
     isVisible: 0
@@ -336,17 +358,27 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 6be02767e130ee14eacf64dd64a77242
     layerID: 7
-    mosaicPosition: {x: 76, y: 76}
+    mosaicPosition: {x: 4, y: 151}
     flatten: 0
     isImported: 1
     isVisible: 0
+  - name: RedX
+    spriteName: RedX
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 59ba84bb2d6197440b68f6432922c7ce
+    layerID: 14
+    mosaicPosition: {x: 4, y: 76}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Gold
     spriteName: Gold
     isGroup: 0
     parentIndex: -1
     spriteID: 8e93e298798247144a86b476301025c8
     layerID: 2
-    mosaicPosition: {x: 76, y: 4}
+    mosaicPosition: {x: 4, y: 201}
     flatten: 0
     isImported: 1
     isVisible: 0
@@ -356,10 +388,10 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: f0ac6e9a0b86a9c4bbc55560f880bb45
     layerID: 10
-    mosaicPosition: {x: 4, y: 76}
+    mosaicPosition: {x: 4, y: 123}
     flatten: 0
     isImported: 1
-    isVisible: 1
+    isVisible: 0
   - name: Background
     spriteName: Background
     isGroup: 0
