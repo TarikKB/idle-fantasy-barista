@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "idle-fantasy-barista.slnx"
+    "dotnet.defaultSolution": "IdleFantasyBarista.slnx"
 }
