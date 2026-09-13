@@ -16,6 +16,8 @@ public class ResourceManagerScript : MonoBehaviour
     public float beans {get; private set;}
     public float beanRate = 1f;
 
+    public float beanLimit = 100f;
+
     [Header("Tickets")]
     public TextMeshProUGUI ticketsText;
     public float tickets {get; private set;}
@@ -36,15 +38,17 @@ public class ResourceManagerScript : MonoBehaviour
 
     void Start()
     {
-        AddGold(100);
+        // AddGold(100);
     }
 
     // Update is called once per frame
     void Update()
     {
-        beans += beanRate * Time.deltaTime;
-        UpdateBeansText();
-        
+        if (beans < beanLimit)
+        {
+            beans += beanRate * Time.deltaTime;
+            UpdateBeansText();
+        }
     }
 
     public void AddGold(float amount)
@@ -53,15 +57,41 @@ public class ResourceManagerScript : MonoBehaviour
         UpdateGoldText();
     }
 
+    public void SetGold(float amount)
+    {
+        gold = amount;
+        UpdateGoldText();
+    }
+
     public void AddBeans(float amount)
     {
         beans += amount;
+        if (beans > beanLimit)
+        {
+            beans = beanLimit;
+        }
+        UpdateBeansText();
+    }
+
+    public void SetBeans(float amount)
+    {
+        beans = amount;
+        if (beans > beanLimit)
+        {
+            beans = beanLimit;
+        }
         UpdateBeansText();
     }
 
     public void AddTickets(float amount)
     {
         tickets += amount;
+        UpdateTicketsText();
+    }
+
+    public void SetTickets(float amount)
+    {
+        tickets = amount;
         UpdateTicketsText();
     }
 
