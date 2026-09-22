@@ -84,16 +84,6 @@ public class UpgradeDataTable : MonoBehaviour
         // fameBonusListing.currentLevel = resourceManager.upgradeData.fameBonusLevel;
     }
 
-    void Start()
-    {
-        // beanRateListing.currentLevel = resourceManager.upgradeData.beanRateLevel;
-        // // beanRateListing.UpdateText();
-        // beanLimitListing.UpdateText();
-        // sellPriceListing.UpdateText();
-        // ticketRateListing.UpdateText();
-        // fameBonusListing.UpdateText();
-    }
-
     public void GetData()
     {
         beanRateListing.currentLevel = resourceManager.upgradeData.beanRateLevel;

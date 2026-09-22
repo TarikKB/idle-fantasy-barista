@@ -146,7 +146,7 @@ public class MobileSaveManager : MonoBehaviour
         resourceManager.SetBeans(state.beans + beanRate * elapsedTime); // Add beans for the time elapsed since last save
         resourceManager.SetTickets(state.tickets);
 
-        for (int i = 0; i < sceneCoffeeMakers.Count && i < state.coffeeMakers.Count; i++)
+        for (int i = 0; i < 20; i++)
         {
             var savedData = state.coffeeMakers[i];
 

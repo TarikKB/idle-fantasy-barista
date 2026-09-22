@@ -43,7 +43,7 @@ public class ResourceManagerScript : MonoBehaviour
     void Start()
     {
         upgradeDataTable = FindFirstObjectByType<UpgradeDataTable>();
-        upgradeData.beanRateLevel = 3;
+        // upgradeData.beanRateLevel = 3;
         // AddGold(100);
     }
 

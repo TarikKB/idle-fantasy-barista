@@ -172,11 +172,11 @@ public class CoffeeManagerScript : MonoBehaviour
         }
     }
 
-    public void RestoreOfflineState(CMData coffeeMakerData, bool isBrewing, bool isReady, long startTime)
+    public void RestoreOfflineState(CMData offlineCoffeeMakerData, bool isBrewing, bool isReady, long startTime)
     {
-        if (coffeeMakerData == null) return;
+        if (offlineCoffeeMakerData == null) return;
 
-        this.coffeeMakerData = coffeeMakerData;
+        SetCoffeeMakerData(offlineCoffeeMakerData);
         brewing = isBrewing;
         readyToSell = isReady;
         brewStartTime = startTime;

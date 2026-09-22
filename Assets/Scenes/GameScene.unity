@@ -316,6 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 33530193}
   - component: {fileID: 33530194}
+  - component: {fileID: 33530196}
   - component: {fileID: 33530195}
   m_Layer: 0
   m_Name: ResourceManager
@@ -413,6 +414,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FPSDisplay
   avgFrameRate: 0
   display_Text: {fileID: 824215597}
+--- !u!114 &33530196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33530192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce43339fc9d27d4f9914d6fe3b007a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeDataTable
+  beanRateListing: {fileID: 1542379746}
+  beanLimitListing: {fileID: 431873941}
+  sellPriceListing: {fileID: 1131443292}
+  ticketRateListing: {fileID: 1289187266}
+  fameBonusListing: {fileID: 981409235}
 --- !u!1 &34610686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,7 +2612,7 @@ PrefabInstance:
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 662883445}
+      objectReference: {fileID: 33530196}
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TryUpgradeBeanLimit
@@ -4070,7 +4088,6 @@ GameObject:
   - component: {fileID: 662883442}
   - component: {fileID: 662883444}
   - component: {fileID: 662883443}
-  - component: {fileID: 662883445}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -4137,23 +4154,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662883441}
   m_CullTransparentMesh: 1
---- !u!114 &662883445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662883441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ce43339fc9d27d4f9914d6fe3b007a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradeDataTable
-  beanRateListing: {fileID: 1542379746}
-  beanLimitListing: {fileID: 431873941}
-  sellPriceListing: {fileID: 1131443292}
-  ticketRateListing: {fileID: 1289187266}
-  fameBonusListing: {fileID: 981409235}
 --- !u!1 &664765390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,7 +5957,7 @@ PrefabInstance:
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 662883445}
+      objectReference: {fileID: 33530196}
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TryUpgradeFameBonus
@@ -6962,7 +6962,7 @@ PrefabInstance:
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 662883445}
+      objectReference: {fileID: 33530196}
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TryUpgradeSellPrice
@@ -8098,7 +8098,7 @@ PrefabInstance:
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 662883445}
+      objectReference: {fileID: 33530196}
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TryUpgradeTicketRate
@@ -9677,7 +9677,11 @@ PrefabInstance:
     - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 662883445}
+      objectReference: {fileID: 33530196}
+    - target: {fileID: 4433192790896643032, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryUpgradeBeanRate
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

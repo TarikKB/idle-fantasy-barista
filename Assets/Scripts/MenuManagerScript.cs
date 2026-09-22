@@ -97,7 +97,7 @@ public class MenuManagerScript : MonoBehaviour
             menuPanel.SetActive(false);
         }
         upgradePanel.SetActive(!upgradePanel.activeSelf);
-        upgradePanel.GetComponent<UpgradeDataTable>().GetData();
+        resourceManager.GetComponent<UpgradeDataTable>().GetData();
     }
 
 
