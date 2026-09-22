@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
-
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 public class MenuManagerScript : MonoBehaviour
 {
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject coffeeMakerCataloguePanel;
+    [SerializeField] private GameObject upgradePanel;
     [SerializeField] private CMCatalogueScript coffeeMakerCatalogueScript;
     [SerializeField] private GameObject sellCoffeePanel;
 
@@ -25,6 +27,7 @@ public class MenuManagerScript : MonoBehaviour
     {
         menuPanel.SetActive(false);
         coffeeMakerCataloguePanel.SetActive(false);
+        upgradePanel.SetActive(false);
         sellModeButton.color = new Color(1f, 1f, 1f);
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
     }
@@ -81,6 +84,20 @@ public class MenuManagerScript : MonoBehaviour
     public void ToggleMenu()
     {
         menuPanel.SetActive(!menuPanel.activeSelf);
+    }
+
+    public void ToggleUpgradeMenu()
+    {
+        if (coffeeMakerCataloguePanel.activeSelf)
+        {
+            coffeeMakerCataloguePanel.SetActive(false);
+        }
+        if (menuPanel.activeSelf)
+        {
+            menuPanel.SetActive(false);
+        }
+        upgradePanel.SetActive(!upgradePanel.activeSelf);
+        upgradePanel.GetComponent<UpgradeDataTable>().GetData();
     }
 
 
