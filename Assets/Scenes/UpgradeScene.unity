@@ -297,6 +297,7 @@ MonoBehaviour:
     m_Flags: 0
   beansText: {fileID: 1775339150}
   beanRate: 2
+  beanLimit: 100
   ticketsText: {fileID: 2107893743}
   levelText: {fileID: 219223205}
   levelUpCosts: 
@@ -3487,7 +3488,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1813997355}
         m_TargetAssemblyTypeName: MenuManagerScript, Assembly-CSharp
-        m_MethodName: CloseActivePanel
+        m_MethodName: CloseUpgradeMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4304,7 +4305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 61.11252}
+  m_AnchoredPosition: {x: 0, y: 61.11255}
   m_SizeDelta: {x: 0, y: -680.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1784563370
@@ -4535,7 +4536,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813997353}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8933f6d32702c247a8047f05f702e84, type: 3}
   m_Name: 

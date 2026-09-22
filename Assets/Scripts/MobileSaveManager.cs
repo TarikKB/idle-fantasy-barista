@@ -22,6 +22,17 @@ public class GameState
     public long saveTime = 0;
 }
 
+[Serializable]
+public class UpgradeData
+{
+    public int beanRateLevel = 0;
+    public int beanLimitLevel = 0;
+    public int sellPriceLevel = 0;
+    public int ticketRateLevel = 0;
+    public int fameBonusLevel = 0;
+
+}
+
 
 
 public class MobileSaveManager : MonoBehaviour
@@ -31,6 +42,7 @@ public class MobileSaveManager : MonoBehaviour
     [SerializeField] private List<CoffeeManagerScript> sceneCoffeeMakers = new List<CoffeeManagerScript>();
 
     private string saveFilePath;
+    private string upgradeFilePath;
     private bool isInitialized = false;
 
     private ResourceManagerScript resourceManager;
@@ -45,11 +57,13 @@ public class MobileSaveManager : MonoBehaviour
         beanRate = resourceManager != null ? resourceManager.beanRate : 0f;
 
         saveFilePath = Path.Combine(Application.persistentDataPath, "coffeesave.json");
+        upgradeFilePath = Path.Combine(Application.persistentDataPath, "upgradesave.json");
     }
 
     private void Start()
     {
         LoadGame();
+        DontDestroyOnLoad(gameObject);
         isInitialized = true;
     }
 
@@ -78,6 +92,11 @@ public class MobileSaveManager : MonoBehaviour
         {
             File.Delete(saveFilePath);
         }
+        if (File.Exists(upgradeFilePath))
+        {
+            File.Delete(upgradeFilePath);
+        }
+        resourceManager.upgradeData = new UpgradeData();
         resourceManager.SetGold(100);
         resourceManager.SetBeans(0);
         resourceManager.SetTickets(0);
@@ -91,6 +110,8 @@ public class MobileSaveManager : MonoBehaviour
     public void SaveGame()
     {
         GameState state = new GameState();
+        UpgradeData upgradeData = resourceManager.upgradeData;
+
         state.saveTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         foreach (var maker in sceneCoffeeMakers)
         {
@@ -107,20 +128,24 @@ public class MobileSaveManager : MonoBehaviour
         state.gold = resourceManager != null ? (int)resourceManager.gold : 0;
         state.beans = resourceManager != null ? (int)resourceManager.beans : 0;
         state.tickets = resourceManager != null ? (int)resourceManager.tickets : 0;
+
+
         string json = JsonUtility.ToJson(state, true);
         File.WriteAllText(saveFilePath, json);
+        File.WriteAllText(upgradeFilePath, JsonUtility.ToJson(upgradeData, true));
     }
 
     public void LoadGame()
     {
         if (!File.Exists(saveFilePath)) return;
-
+        if (!File.Exists(upgradeFilePath)) return;
         string json = File.ReadAllText(saveFilePath);
         GameState state = JsonUtility.FromJson<GameState>(json);
         long elapsedTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - state.saveTime;
         resourceManager.SetGold(state.gold);
         resourceManager.SetBeans(state.beans + beanRate * elapsedTime); // Add beans for the time elapsed since last save
         resourceManager.SetTickets(state.tickets);
+
         for (int i = 0; i < sceneCoffeeMakers.Count && i < state.coffeeMakers.Count; i++)
         {
             var savedData = state.coffeeMakers[i];
@@ -132,5 +157,10 @@ public class MobileSaveManager : MonoBehaviour
                 savedData.brewStartTime
             );
         }
+
+        string upgradeJson = File.ReadAllText(upgradeFilePath);
+        UpgradeData upgradeData = JsonUtility.FromJson<UpgradeData>(upgradeJson);
+        resourceManager.upgradeData = upgradeData;
+
     }
 }
