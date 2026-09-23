@@ -11,6 +11,7 @@ public class CustomerScript : MonoBehaviour
 
     public void MoveUpLine(Transform nextPoint)
     {
+        
         transform.DOKill();
         
         float dist = Vector3.Distance(transform.position, nextPoint.position);
@@ -36,7 +37,8 @@ public class CustomerScript : MonoBehaviour
     public void ExitLine(Transform exitPoint)
     {
         transform.DOKill();
-
+        GetComponent<SpriteRenderer>().flipX = true;
+        // GetComponent<SpriteRenderer>().sortingOrder += 1;
         float dist = Vector3.Distance(transform.position, exitPoint.position);
         float moveDuration = dist / speed;
         float baseY = transform.position.y;
