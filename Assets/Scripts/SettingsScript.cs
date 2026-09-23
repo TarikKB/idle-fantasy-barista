@@ -42,7 +42,7 @@ public class SettingsScript : MonoBehaviour
     public void SetMaxFPS(int maxFPS)
     {
         int calculatedFPS = (int)(Mathf.Pow(2, maxFPS) * 30);
-        print ("Setting Max FPS to: " + calculatedFPS);
+        // print ("Setting Max FPS to: " + calculatedFPS);
         Application.targetFrameRate = calculatedFPS;
         PlayerPrefs.SetInt("MaxFPS", maxFPS);
         PlayerPrefs.Save();
