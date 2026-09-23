@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 public class MenuManagerScript : MonoBehaviour
 {
-    [SerializeField] private GameObject menuPanel;
+    [SerializeField] private GameObject[] panels;
     [SerializeField] private GameObject coffeeMakerCataloguePanel;
     [SerializeField] private GameObject upgradePanel;
+    [SerializeField] private GameObject settingsPanel;
     [SerializeField] private CMCatalogueScript coffeeMakerCatalogueScript;
     [SerializeField] private GameObject sellCoffeePanel;
 
@@ -25,9 +26,10 @@ public class MenuManagerScript : MonoBehaviour
 
     void Start()
     {
-        menuPanel.SetActive(false);
-        coffeeMakerCataloguePanel.SetActive(false);
-        upgradePanel.SetActive(false);
+        // menuPanel.SetActive(false);
+        // coffeeMakerCataloguePanel.SetActive(false);
+        // upgradePanel.SetActive(false);
+        CloseActivePanel();
         sellModeButton.color = new Color(1f, 1f, 1f);
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
     }
@@ -45,59 +47,56 @@ public class MenuManagerScript : MonoBehaviour
             maker.SetSellIndicatorVisible(sellMode);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CloseActivePanel()
+{
+    foreach (GameObject panel in panels)
     {
-        if (coffeeMakerCataloguePanel.activeSelf)
+        if (panel != null)
         {
-            coffeeMakerCataloguePanel.SetActive(false);
+            panel.SetActive(false);
         }
-        if (menuPanel.activeSelf)
-        {
-            menuPanel.SetActive(false);
-        }
-        if (sellCoffeePanel.activeSelf)
-        {
-            sellCoffeePanel.SetActive(false);
-        }
+    }
     }
 
     public void ToggleCatalogue(CoffeeManagerScript coffeeMaker)
     {
         if (coffeeMakerCataloguePanel.activeSelf)
         {
-            coffeeMakerCataloguePanel.SetActive(false);
+            CloseActivePanel();
         }
         else
         {
+            CloseActivePanel();
             coffeeMakerCataloguePanel.SetActive(true);
             coffeeMakerCatalogueScript.PopulateCatalogue(coffeeMaker);
         }
     }
 
-    public void ToggleMenu()
-    {
-        menuPanel.SetActive(!menuPanel.activeSelf);
-    }
-
     public void ToggleUpgradeMenu()
     {
-        if (coffeeMakerCataloguePanel.activeSelf)
+        if (upgradePanel.activeSelf)
         {
-            coffeeMakerCataloguePanel.SetActive(false);
+            CloseActivePanel();
         }
-        if (menuPanel.activeSelf)
+        else
         {
-            menuPanel.SetActive(false);
+            CloseActivePanel();
+            upgradePanel.SetActive(true);
+            resourceManager.GetComponent<UpgradeDataTable>().GetData();
+        }   
+    }
+
+    public void ToggleSettingsMenu()
+    {
+        if (settingsPanel.activeSelf)
+        {
+            CloseActivePanel();
         }
-        upgradePanel.SetActive(!upgradePanel.activeSelf);
-        resourceManager.GetComponent<UpgradeDataTable>().GetData();
+        else
+        {
+            CloseActivePanel();
+            settingsPanel.SetActive(true);
+        }
     }
 
 
