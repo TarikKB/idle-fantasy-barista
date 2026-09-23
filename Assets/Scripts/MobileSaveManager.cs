@@ -16,7 +16,7 @@ public class CoffeeMakerSaveData
 public class GameState
 {
     public List<CoffeeMakerSaveData> coffeeMakers = new List<CoffeeMakerSaveData>();
-    public int gold = 0;
+    public int gold = 100;
     public int beans = 0;
     public int tickets = 0;
     public long saveTime = 0;
