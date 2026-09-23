@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class ResourceManagerScript : MonoBehaviour
 {
     [Header("Gold")]
@@ -125,6 +124,16 @@ public class ResourceManagerScript : MonoBehaviour
     private void UpdateLevelText()
     {
         levelText.text = level.ToString();
+    }
+
+    public void TicketCheck()
+    {
+        float ticketRate = upgradeDataTable.ticketRateUpgrade.baseValue + (upgradeData.ticketRateLevel * upgradeDataTable.ticketRateUpgrade.valueScale);
+        print(ticketRate);
+        if (Random.Range(0f, 1f) < ticketRate)
+        {
+            AddTickets(1);
+        }
     }
 
     public bool UpgradeBeanRate(float cost)

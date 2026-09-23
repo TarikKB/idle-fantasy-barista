@@ -65,8 +65,8 @@ public class UpgradeDataTable : MonoBehaviour
 
         ticketRateUpgrade = new UpgradeLevelData
         {
-            baseCost = 100.0f,
-            costMultiplier = 3.0f,
+            baseCost = 50.0f,
+            costMultiplier = 2.0f,
             baseValue = 0.01f,
             valueScale = 0.01f
         };

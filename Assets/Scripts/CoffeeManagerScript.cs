@@ -218,6 +218,7 @@ public class CoffeeManagerScript : MonoBehaviour
             currentIconIndex = 0;
             makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
             lineManager.AddCustomerToLine();
+            resourceManager.TicketCheck();
         }
     }
 
