@@ -244,6 +244,36 @@ ScriptedImporter:
   resliceFromLayer: 1
   pSDLayerImportSetting: []
   psdLayers:
+  - name: FameLevelUp
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 27d16a2f2de4e2f4088a9035954f3a06
+    layerID: 9
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: TicketRateUp
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dbbe31b01741f664789d6f117fe98bb4
+    layerID: 8
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: SellPriceUp
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e8fb22d39ab05ef41ae5c29ddf82031d
+    layerID: 7
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
   - name: BeansLimitUp
     spriteName: BeansLimitUp
     isGroup: 0

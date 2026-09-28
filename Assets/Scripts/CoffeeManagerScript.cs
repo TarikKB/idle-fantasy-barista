@@ -8,6 +8,7 @@ public class CoffeeManagerScript : MonoBehaviour
     public CMData coffeeMakerData;
 
     private ResourceManagerScript resourceManager;
+    private ShelfScript shelfManager;
     [SerializeField] private Image makerSprite;
     private Slider brewProgressSlider;
     private MenuManagerScript menuManager;
@@ -17,7 +18,6 @@ public class CoffeeManagerScript : MonoBehaviour
     private int currentIconIndex = 0;
     private bool empty = true;
 
-    [SerializeField] private SpriteRenderer[] shelfSprites;
     [SerializeField] public GameObject sellIndicator;
     private LineScript lineManager;
 
@@ -29,6 +29,7 @@ public class CoffeeManagerScript : MonoBehaviour
 
     void Start()
     {
+        shelfManager = FindFirstObjectByType<ShelfScript>();
         menuManager = FindFirstObjectByType<MenuManagerScript>();
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
         lineManager = FindFirstObjectByType<LineScript>();
@@ -63,15 +64,14 @@ public class CoffeeManagerScript : MonoBehaviour
             makerSprite.preserveAspect = true;
             makerSprite.gameObject.SetActive(true);
             empty = false;
-
-            for (int i = 0; i < shelfSprites.Length; i++)
-            {
-                if (shelfSprites[i].sprite == null)
-                {
-                    shelfSprites[i].sprite = coffeeMakerData.icons[0];
-                    break;
-                }
-            }
+            // for (int i = 0; i < shelfSprites.Length; i++)
+            // {
+            //     // if (shelfSprites[i].sprite == null)
+            //     // {
+            //     //     shelfSprites[i].sprite = coffeeMakerData.icons[0];
+            //     //     break;
+            //     // }
+            // }
         }
     }
 
@@ -219,6 +219,7 @@ public class CoffeeManagerScript : MonoBehaviour
             makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
+            resourceManager.AddFameXP(100f);
         }
     }
 
@@ -230,7 +231,21 @@ public class CoffeeManagerScript : MonoBehaviour
         if (!CanSellMachine()) return false;
         resourceManager.AddGold(GetSellValue());
         ClearSoldMachine();
+        RefreshShelfDisplay();
         return true;
+    }
+
+    public void RefreshShelfDisplay()
+    {
+        if (shelfManager == null)
+        {
+            shelfManager = FindFirstObjectByType<ShelfScript>();
+        }
+
+        if (shelfManager != null)
+        {
+            shelfManager.UpdateShelfSprites();
+        }
     }
 
     public void DeleteMachine()
@@ -244,19 +259,6 @@ public class CoffeeManagerScript : MonoBehaviour
         if (brewProgressSlider != null)
         {
             brewProgressSlider.value = 0f;
-        }
-
-        if (coffeeMakerData != null && coffeeMakerData.icons.Length > 0)
-        {
-            Sprite icon = coffeeMakerData.icons[0];
-            for (int i = 0; i < shelfSprites.Length; i++)
-            {
-                if (shelfSprites[i].sprite == icon)
-                {
-                    shelfSprites[i].sprite = null;
-                    break;
-                }
-            }
         }
 
         coffeeMakerData = null;

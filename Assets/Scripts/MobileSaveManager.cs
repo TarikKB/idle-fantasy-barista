@@ -19,6 +19,8 @@ public class GameState
     public int gold = 100;
     public int beans = 0;
     public int tickets = 0;
+    public int fameLevel = 1;
+    public float xp = 0f;
     public long saveTime = 0;
 }
 
@@ -46,6 +48,7 @@ public class MobileSaveManager : MonoBehaviour
     private bool isInitialized = false;
 
     private ResourceManagerScript resourceManager;
+    private ShelfScript shelfManager;
 
     private float beanRate;
 
@@ -54,6 +57,7 @@ public class MobileSaveManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
+        shelfManager = FindFirstObjectByType<ShelfScript>();
         beanRate = resourceManager != null ? resourceManager.beanRate : 0f;
 
         saveFilePath = Path.Combine(Application.persistentDataPath, "coffeesave.json");
@@ -100,6 +104,8 @@ public class MobileSaveManager : MonoBehaviour
         resourceManager.SetGold(100);
         resourceManager.SetBeans(0);
         resourceManager.SetTickets(0);
+        resourceManager.SetFameLevel(1);
+        resourceManager.SetFameXP(0f);
         foreach (var maker in sceneCoffeeMakers)
         {
             maker.DeleteMachine();
@@ -128,7 +134,8 @@ public class MobileSaveManager : MonoBehaviour
         state.gold = resourceManager != null ? (int)resourceManager.gold : 0;
         state.beans = resourceManager != null ? (int)resourceManager.beans : 0;
         state.tickets = resourceManager != null ? (int)resourceManager.tickets : 0;
-
+        state.fameLevel = resourceManager != null ? resourceManager.fameLevel : 0;
+        state.xp = resourceManager != null ? resourceManager.xp : 0;
 
         string json = JsonUtility.ToJson(state, true);
         File.WriteAllText(saveFilePath, json);
@@ -145,6 +152,8 @@ public class MobileSaveManager : MonoBehaviour
         resourceManager.SetGold(state.gold);
         resourceManager.SetBeans(state.beans + beanRate * elapsedTime); // Add beans for the time elapsed since last save
         resourceManager.SetTickets(state.tickets);
+        resourceManager.SetFameLevel(state.fameLevel);
+        resourceManager.SetFameXP(state.xp);
 
         for (int i = 0; i < 20; i++)
         {
@@ -161,6 +170,7 @@ public class MobileSaveManager : MonoBehaviour
         string upgradeJson = File.ReadAllText(upgradeFilePath);
         UpgradeData upgradeData = JsonUtility.FromJson<UpgradeData>(upgradeJson);
         resourceManager.upgradeData = upgradeData;
+        shelfManager.UpdateShelfSprites();
 
     }
 }

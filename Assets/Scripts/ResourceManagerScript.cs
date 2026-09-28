@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class ResourceManagerScript : MonoBehaviour
 {
     [Header("Gold")]
@@ -21,11 +22,13 @@ public class ResourceManagerScript : MonoBehaviour
     public TextMeshProUGUI ticketsText;
     public float tickets {get; private set;}
 
-    [Header("Level")]
-    public TextMeshProUGUI levelText;
-    public int level {get; private set;}
-    [SerializeField] private int[] levelUpCosts;
+    [Header("Fame")]
+    public TextMeshProUGUI fameText;
+    public int fameLevel {get; private set;}
+    private float fameXPThreshold = 100f;
+    private float fameXPScale = 150f;
     public float xp {get; private set;}
+    [SerializeField] private Slider fameProgressSlider;
 
     [Header("Upgrade Levels")]
     public UpgradeData upgradeData;
@@ -100,10 +103,27 @@ public class ResourceManagerScript : MonoBehaviour
         UpdateTicketsText();
     }
 
-    public void AddXP(float amount)
+    public void AddFameXP(float amount)
     {
         xp += amount;
-        UpdateLevelText();
+        if (xp >= fameXPThreshold)
+        {
+            xp -= fameXPThreshold;
+            fameLevel++;
+            fameXPThreshold += fameXPScale;
+        }
+        UpdateFameText();
+    }
+    public void SetFameLevel(int level)
+    {
+        fameLevel = level;
+        UpdateFameText();
+    }
+
+    public void SetFameXP(float amount)
+    {
+        xp = amount;
+        UpdateFameText();
     }
 
     private void UpdateGoldText()
@@ -121,15 +141,19 @@ public class ResourceManagerScript : MonoBehaviour
         ticketsText.text = tickets.ToString("F0");
     }
 
-    private void UpdateLevelText()
+    private void UpdateFameText()
     {
-        levelText.text = level.ToString();
+        fameText.text = fameLevel.ToString();
+        if (fameProgressSlider != null)
+        {
+            fameProgressSlider.value = xp / fameXPThreshold;
+        }
     }
 
     public void TicketCheck()
     {
         float ticketRate = upgradeDataTable.ticketRateUpgrade.baseValue + (upgradeData.ticketRateLevel * upgradeDataTable.ticketRateUpgrade.valueScale);
-        print(ticketRate);
+        // print(ticketRate);
         if (Random.Range(0f, 1f) < ticketRate)
         {
             AddTickets(1);
