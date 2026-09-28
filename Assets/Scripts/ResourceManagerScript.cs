@@ -217,5 +217,17 @@ public class ResourceManagerScript : MonoBehaviour
         }
         return false;
     }
+
+    public void ResetData()
+    {
+        upgradeData = new UpgradeData();
+        SetGold(100);
+        SetBeans(0);
+        SetTickets(0);
+        SetFameLevel(1);
+        SetFameXP(0f);
+        fameXPThreshold = 100f;
+        beanRate = 1f;
+    }
     
 }

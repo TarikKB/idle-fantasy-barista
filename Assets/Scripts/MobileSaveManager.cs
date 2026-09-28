@@ -100,12 +100,7 @@ public class MobileSaveManager : MonoBehaviour
         {
             File.Delete(upgradeFilePath);
         }
-        resourceManager.upgradeData = new UpgradeData();
-        resourceManager.SetGold(100);
-        resourceManager.SetBeans(0);
-        resourceManager.SetTickets(0);
-        resourceManager.SetFameLevel(1);
-        resourceManager.SetFameXP(0f);
+        resourceManager.ResetData();
         foreach (var maker in sceneCoffeeMakers)
         {
             maker.DeleteMachine();

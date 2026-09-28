@@ -7102,6 +7102,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Fame Level
       objectReference: {fileID: 0}
+    - target: {fileID: 8613380887569601291, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6864347748690908574, guid: c83ab65c36e6d1e46a3b47afbc390bd6, type: 3}
+    - target: {fileID: 8613380887569601291, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8369,6 +8377,14 @@ PrefabInstance:
     - target: {fileID: 6093393944439602741, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_text
       value: Sell Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613380887569601291, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1913677569768569865, guid: c83ab65c36e6d1e46a3b47afbc390bd6, type: 3}
+    - target: {fileID: 8613380887569601291, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9916,6 +9932,14 @@ PrefabInstance:
     - target: {fileID: 6093393944439602741, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
       propertyPath: m_text
       value: Ticket Rate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613380887569601291, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6519829857571537990, guid: c83ab65c36e6d1e46a3b47afbc390bd6, type: 3}
+    - target: {fileID: 8613380887569601291, guid: 078ef8278cd26794bb6936f27871eae9, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

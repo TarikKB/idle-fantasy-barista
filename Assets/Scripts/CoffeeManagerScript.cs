@@ -219,7 +219,7 @@ public class CoffeeManagerScript : MonoBehaviour
             makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
-            resourceManager.AddFameXP(100f);
+            resourceManager.AddFameXP(10f);
         }
     }
 
@@ -269,5 +269,6 @@ public class CoffeeManagerScript : MonoBehaviour
         empty = true;
 
         makerSprite.gameObject.SetActive(false);
+        shelfManager.UpdateShelfSprites();
     }
 }

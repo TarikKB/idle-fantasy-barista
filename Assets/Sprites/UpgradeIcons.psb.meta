@@ -95,6 +95,72 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 117
+      width: 42
+      height: 38
+    spriteID: 1bf92e39bdb99dd409194ab304f972b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 117}
+    spritePosition: {x: 12, y: 13}
+  - name: TicketRateUp
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 163
+      width: 43
+      height: 34
+    spriteID: 7afb2cee03e99f64faab22d877dbbdad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 163}
+    spritePosition: {x: 9, y: 15}
+  - name: SellPriceUp
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 205
+      width: 43
+      height: 32
+    spriteID: 8a8ff0d2f865d2643a501c9db068ce68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 205}
+    spritePosition: {x: 10, y: 15}
   - name: BeansLimitUp
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -103,8 +169,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 64
-      y: 76
+      x: 76
+      y: 4
       width: 40
       height: 42
     spriteID: c2bb1f15c81670b47935bf48e783f019
@@ -115,7 +181,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 64, y: 76}
+    uvTransform: {x: 76, y: 4}
     spritePosition: {x: 12, y: 11}
   - name: BeansRateUp
     originalName: 
@@ -244,46 +310,46 @@ ScriptedImporter:
   resliceFromLayer: 1
   pSDLayerImportSetting: []
   psdLayers:
-  - name: FameLevelUp
-    spriteName: 
+  - name: Layer 1
+    spriteName: Layer 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 27d16a2f2de4e2f4088a9035954f3a06
-    layerID: 9
-    mosaicPosition: {x: 0, y: 0}
+    spriteID: 1bf92e39bdb99dd409194ab304f972b8
+    layerID: 20
+    mosaicPosition: {x: 4, y: 117}
     flatten: 0
-    isImported: 0
+    isImported: 1
     isVisible: 1
   - name: TicketRateUp
-    spriteName: 
+    spriteName: TicketRateUp
     isGroup: 0
     parentIndex: -1
-    spriteID: dbbe31b01741f664789d6f117fe98bb4
-    layerID: 8
-    mosaicPosition: {x: 0, y: 0}
+    spriteID: 7afb2cee03e99f64faab22d877dbbdad
+    layerID: 12
+    mosaicPosition: {x: 4, y: 163}
     flatten: 0
-    isImported: 0
-    isVisible: 1
+    isImported: 1
+    isVisible: 0
   - name: SellPriceUp
-    spriteName: 
+    spriteName: SellPriceUp
     isGroup: 0
     parentIndex: -1
-    spriteID: e8fb22d39ab05ef41ae5c29ddf82031d
-    layerID: 7
-    mosaicPosition: {x: 0, y: 0}
+    spriteID: 8a8ff0d2f865d2643a501c9db068ce68
+    layerID: 11
+    mosaicPosition: {x: 4, y: 205}
     flatten: 0
-    isImported: 0
-    isVisible: 1
+    isImported: 1
+    isVisible: 0
   - name: BeansLimitUp
     spriteName: BeansLimitUp
     isGroup: 0
     parentIndex: -1
     spriteID: c2bb1f15c81670b47935bf48e783f019
     layerID: 6
-    mosaicPosition: {x: 64, y: 76}
+    mosaicPosition: {x: 76, y: 4}
     flatten: 0
     isImported: 1
-    isVisible: 1
+    isVisible: 0
   - name: BeansRateUp
     spriteName: BeansRateUp
     isGroup: 0
