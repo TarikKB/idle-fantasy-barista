@@ -53,6 +53,11 @@ public class CMListing : MonoBehaviour
             // print($"Attempting to purchase {coffeeMakerData.coffeeMakerName} for ${coffeeMakerData.purchaseCost}");
             if (resourceManager.gold >= coffeeMakerData.purchaseCost && resourceManager.fameLevel >= coffeeMakerData.unlockLevel)
             {
+                if (currentCoffeeMaker.IsEmpty())
+                {
+                    resourceManager.RegisterPurchasedMachine();
+                }
+
                 resourceManager.AddGold(-coffeeMakerData.purchaseCost);
                 currentCoffeeMaker.SetCoffeeMakerData(coffeeMakerData);
                 currentCoffeeMaker.RefreshShelfDisplay();

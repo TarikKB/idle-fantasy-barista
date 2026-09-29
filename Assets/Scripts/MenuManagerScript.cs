@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+
 public class MenuManagerScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels;
@@ -106,14 +107,17 @@ public class MenuManagerScript : MonoBehaviour
         // Technically can be activated  by another click
         if (!sellCoffeePanel.activeSelf)
         {
-            if (maker.CanSellMachine())
+            int purchasedMachineCount = resourceManager == null ? 0 : resourceManager.purchasedMachineCount;
+
+            if (SaleRules.CanSellMachine(maker, purchasedMachineCount))
             {
-                //TODO: @gmaddalozzo for future reference make this auto translate
+                //TODO: @gmaddalozzo for future reference make this auto translate. 
                 sellPanelText.text = $"Sell for ${maker.GetSellValue()}?";
-                sellPanelConfirmButton.SetActive(true);
-            } else
+                sellPanelConfirmButton.SetActive(true); 
+            }
+            else
             {
-                sellPanelText.text = "Unable to sell this machine because it is either brewing or coffee ready to be sold";
+                sellPanelText.text = "Unable to sell this machine because it is either brewing, coffee ready to be sold, or only 1 coffee machine";
                 sellPanelConfirmButton.SetActive(false);
             }
             sellPanelImage.sprite = maker.coffeeMakerData.icons[0];
