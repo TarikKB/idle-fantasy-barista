@@ -51,15 +51,16 @@ public class CMListing : MonoBehaviour
         if (currentCoffeeMaker != null && coffeeMakerData != null)
         {
             // print($"Attempting to purchase {coffeeMakerData.coffeeMakerName} for ${coffeeMakerData.purchaseCost}");
-            if (resourceManager.gold >= coffeeMakerData.purchaseCost)
+            if (resourceManager.gold >= coffeeMakerData.purchaseCost && resourceManager.fameLevel >= coffeeMakerData.unlockLevel)
             {
                 resourceManager.AddGold(-coffeeMakerData.purchaseCost);
                 currentCoffeeMaker.SetCoffeeMakerData(coffeeMakerData);
+                currentCoffeeMaker.RefreshShelfDisplay();
                 menuManager.CloseActivePanel();
             }
             else
             {
-                Debug.Log("Not enough money to purchase this coffee maker.");
+                // Debug.Log("Not enough money to purchase this coffee maker.");
             }
         }
     }
