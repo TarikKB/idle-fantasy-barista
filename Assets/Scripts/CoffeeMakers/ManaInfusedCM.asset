@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7a07be2fc531a40b90af6ffb08adaa, type: 3}
   m_Name: ManaInfusedCM
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeMakerData
+  id: mana_maker
   coffeeMakerName: Mana Coffee Maker
   icons:
   - {fileID: 537456682440410332, guid: 3da8559728686374b9f420cdbdd1e316, type: 3}

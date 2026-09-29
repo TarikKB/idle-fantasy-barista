@@ -13631,6 +13631,10 @@ MonoBehaviour:
   - {fileID: 1920487512}
   - {fileID: 1841493432}
   - {fileID: 1730134556}
+  coffeeMakerDatabase:
+  - {fileID: 11400000, guid: e9f5a28725995de4faab964a37b9bf35, type: 2}
+  - {fileID: 11400000, guid: 5446c1308093b5d4cb36921b705c5351, type: 2}
+  - {fileID: 11400000, guid: 9af0bc523a1148142bd453599ad11fcc, type: 2}
 --- !u!4 &1825993805
 Transform:
   m_ObjectHideFlags: 0
