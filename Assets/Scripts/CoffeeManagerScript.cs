@@ -27,15 +27,21 @@ public class CoffeeManagerScript : MonoBehaviour
     public bool IsBrewing() => brewing;
     public bool IsReadyToSell() => readyToSell;
 
-    void Start()
+
+    void Awake()
     {
         shelfManager = FindFirstObjectByType<ShelfScript>();
         menuManager = FindFirstObjectByType<MenuManagerScript>();
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
         lineManager = FindFirstObjectByType<LineScript>();
         brewProgressSlider = GetComponentInChildren<Slider>();
+        
+    }
 
-        if (coffeeMakerData != null && coffeeMakerData.icons.Length > 0)
+    void Start()
+    {
+
+        if (coffeeMakerData != null && coffeeMakerData.icons != null && coffeeMakerData.icons.Length > 0 && coffeeMakerData.icons[0] != null)
         {
             makerSprite.sprite = coffeeMakerData.icons[0];
             makerSprite.preserveAspect = true;
@@ -45,6 +51,7 @@ public class CoffeeManagerScript : MonoBehaviour
         else
         {
             makerSprite.gameObject.SetActive(false);
+            empty = true;
         }
         RestoreOfflineState(coffeeMakerData, brewing, readyToSell, brewStartTime);
     }
@@ -58,21 +65,66 @@ public class CoffeeManagerScript : MonoBehaviour
     public void SetCoffeeMakerData(CMData data)
     {
         coffeeMakerData = data;
-        if (coffeeMakerData != null && coffeeMakerData.icons.Length > 0)
+
+        if (coffeeMakerData == null)
         {
-            makerSprite.sprite = coffeeMakerData.icons[0];
-            makerSprite.preserveAspect = true;
-            makerSprite.gameObject.SetActive(true);
-            empty = false;
-            // for (int i = 0; i < shelfSprites.Length; i++)
-            // {
-            //     // if (shelfSprites[i].sprite == null)
-            //     // {
-            //     //     shelfSprites[i].sprite = coffeeMakerData.icons[0];
-            //     //     break;
-            //     // }
-            // }
+            ClearCoffeeMakerSlot();
+            return;
         }
+
+        if (makerSprite == null)
+        {
+            Debug.LogError(
+                $"CoffeeManagerScript on '{name}' has no makerSprite assigned."
+            );
+            return;
+        }
+
+        if (coffeeMakerData.icons == null ||
+            coffeeMakerData.icons.Length == 0)
+        {
+            Debug.LogError(
+                $"Coffee maker '{coffeeMakerData.name}' has no icons."
+            );
+
+            ClearCoffeeMakerSlot();
+            return;
+        }
+
+        if (coffeeMakerData.icons[0] == null)
+        {
+            Debug.LogError(
+                $"Coffee maker '{coffeeMakerData.name}' has a null first icon."
+            );
+
+            ClearCoffeeMakerSlot();
+            return;
+        }
+
+        makerSprite.sprite = coffeeMakerData.icons[0];
+        makerSprite.preserveAspect = true;
+        makerSprite.gameObject.SetActive(true);
+
+        currentIconIndex = 0;
+        empty = false;
+    }
+
+    private void SetMakerSprite(int index)
+    {
+        if (makerSprite == null ||
+            coffeeMakerData == null ||
+            coffeeMakerData.icons == null ||
+            index < 0 ||
+            index >= coffeeMakerData.icons.Length ||
+            coffeeMakerData.icons[index] == null)
+        {
+            Debug.LogWarning(
+                $"Unable to set coffee maker sprite at index {index} on {name}."
+            );
+            return;
+        }
+
+        makerSprite.sprite = coffeeMakerData.icons[index];
     }
 
     public void OnClick()
@@ -148,7 +200,7 @@ public class CoffeeManagerScript : MonoBehaviour
                 if (iconIndex != currentIconIndex)
                 {
                     currentIconIndex = iconIndex;
-                    makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
+                    SetMakerSprite(currentIconIndex);
                 }
             }
 
@@ -168,33 +220,84 @@ public class CoffeeManagerScript : MonoBehaviour
         if (totalIcons > 0)
         {
             currentIconIndex = totalIcons - 1; // Last sprite index
-            makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
+            SetMakerSprite(currentIconIndex);
         }
     }
 
+    // public void RestoreOfflineState(CMData offlineCoffeeMakerData, bool isBrewing, bool isReady, long startTime)
+    // {
+    //     if (offlineCoffeeMakerData == null) return;
+
+    //     SetCoffeeMakerData(offlineCoffeeMakerData);
+    //     brewing = isBrewing;
+    //     readyToSell = isReady;
+    //     brewStartTime = startTime;
+
+    //     // If it was already marked as ready to sell before saving
+    //     if (readyToSell)
+    //     {
+    //         brewStartTime = 0; // Guard: Ensure old timestamp is cleared
+    //         currentIconIndex = coffeeMakerData.icons.Length - 1;
+    //         SetMakerSprite(currentIconIndex);
+    //         if (brewProgressSlider != null) brewProgressSlider.value = 0f;
+    //         return;
+    //     }
+
+    //     if (brewing && brewStartTime > 0)
+    //     {
+    //         long currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    //         long elapsedTime = currentTime - brewStartTime;
+
+    //         if (elapsedTime >= coffeeMakerData.brewTimeSeconds)
+    //         {
+    //             StartBrewRoutine(0f, elapsedTime);
+    //         }
+    //         else
+    //         {
+    //             // Resume brewing mid-process
+    //             float remaining = coffeeMakerData.brewTimeSeconds - elapsedTime;
+    //             StartBrewRoutine(remaining, elapsedTime);
+    //         }
+    //     }
+    // }
     public void RestoreOfflineState(CMData offlineCoffeeMakerData, bool isBrewing, bool isReady, long startTime)
     {
-        if (offlineCoffeeMakerData == null) return;
+        if (offlineCoffeeMakerData == null)
+        {
+            ClearCoffeeMakerSlot();
+            return;
+        }
 
         SetCoffeeMakerData(offlineCoffeeMakerData);
+
         brewing = isBrewing;
         readyToSell = isReady;
         brewStartTime = startTime;
 
-        // If it was already marked as ready to sell before saving
         if (readyToSell)
         {
-            brewStartTime = 0; // Guard: Ensure old timestamp is cleared
-            currentIconIndex = coffeeMakerData.icons.Length - 1;
-            makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
-            if (brewProgressSlider != null) brewProgressSlider.value = 0f;
+            brewStartTime = 0;
+
+            if (coffeeMakerData.icons != null &&
+                coffeeMakerData.icons.Length > 0)
+            {
+                currentIconIndex = coffeeMakerData.icons.Length - 1;
+                SetMakerSprite(currentIconIndex);
+            }
+
+            if (brewProgressSlider != null)
+                brewProgressSlider.value = 0f;
+
             return;
         }
 
         if (brewing && brewStartTime > 0)
         {
-            long currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            long elapsedTime = currentTime - brewStartTime;
+            long currentTime =
+                DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            long elapsedTime =
+                currentTime - brewStartTime;
 
             if (elapsedTime >= coffeeMakerData.brewTimeSeconds)
             {
@@ -202,11 +305,36 @@ public class CoffeeManagerScript : MonoBehaviour
             }
             else
             {
-                // Resume brewing mid-process
-                float remaining = coffeeMakerData.brewTimeSeconds - elapsedTime;
+                float remaining =
+                    coffeeMakerData.brewTimeSeconds - elapsedTime;
+
                 StartBrewRoutine(remaining, elapsedTime);
             }
         }
+    }
+
+    private void ClearCoffeeMakerSlot()
+    {
+        StopAllCoroutines();
+
+        coffeeMakerData = null;
+        brewing = false;
+        readyToSell = false;
+        brewStartTime = 0;
+        currentIconIndex = 0;
+        empty = true;
+
+        if (brewProgressSlider != null)
+            brewProgressSlider.value = 0f;
+
+        if (makerSprite != null)
+        {
+            makerSprite.sprite = null;
+            makerSprite.gameObject.SetActive(false);
+        }
+
+        if (sellIndicator != null)
+            sellIndicator.SetActive(false);
     }
 
     private void SellCoffee()
@@ -216,7 +344,7 @@ public class CoffeeManagerScript : MonoBehaviour
             resourceManager.AddGold(coffeeMakerData.sellPrice);
             readyToSell = false;
             currentIconIndex = 0;
-            makerSprite.sprite = coffeeMakerData.icons[currentIconIndex];
+            SetMakerSprite(currentIconIndex);
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
             resourceManager.AddFameXP(10f);
@@ -256,10 +384,9 @@ public class CoffeeManagerScript : MonoBehaviour
     private void ClearSoldMachine()
     {
         StopAllCoroutines();
+
         if (brewProgressSlider != null)
-        {
             brewProgressSlider.value = 0f;
-        }
 
         coffeeMakerData = null;
         brewing = false;
@@ -268,7 +395,16 @@ public class CoffeeManagerScript : MonoBehaviour
         currentIconIndex = 0;
         empty = true;
 
-        makerSprite.gameObject.SetActive(false);
-        shelfManager.UpdateShelfSprites();
+        if (makerSprite != null)
+        {
+            makerSprite.sprite = null;
+            makerSprite.gameObject.SetActive(false);
+        }
+
+        if (sellIndicator != null)
+            sellIndicator.SetActive(false);
+
+        if (shelfManager != null)
+            shelfManager.UpdateShelfSprites();
     }
 }

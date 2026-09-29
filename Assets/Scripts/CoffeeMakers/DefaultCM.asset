@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7a07be2fc531a40b90af6ffb08adaa, type: 3}
   m_Name: DefaultCM
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeMakerData
+  id: basic_maker
   coffeeMakerName: Coffee Maker
   icons:
   - {fileID: 537456682440410332, guid: 8e0e0ba8ceb384b4fb9bc169b94b3e2b, type: 3}

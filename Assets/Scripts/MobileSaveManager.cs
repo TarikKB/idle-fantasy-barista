@@ -6,7 +6,8 @@ using UnityEngine;
 [Serializable]
 public class CoffeeMakerSaveData
 {
-    public CMData coffeeMakerData;
+    // public CMData coffeeMakerData;
+    public string coffeeMakerId;
     public bool isBrewing;
     public bool isReadyToSell;
     public long brewStartTime;
@@ -42,6 +43,7 @@ public class MobileSaveManager : MonoBehaviour
     public static MobileSaveManager Instance;
 
     [SerializeField] private List<CoffeeManagerScript> sceneCoffeeMakers = new List<CoffeeManagerScript>();
+    [SerializeField] private List<CMData> coffeeMakerDatabase = new List<CMData>();
 
     private string saveFilePath;
     private string upgradeFilePath;
@@ -54,13 +56,23 @@ public class MobileSaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
         shelfManager = FindFirstObjectByType<ShelfScript>();
+
         beanRate = resourceManager != null ? resourceManager.beanRate : 0f;
 
         saveFilePath = Path.Combine(Application.persistentDataPath, "coffeesave.json");
+
         upgradeFilePath = Path.Combine(Application.persistentDataPath, "upgradesave.json");
     }
 
@@ -69,6 +81,21 @@ public class MobileSaveManager : MonoBehaviour
         LoadGame();
         DontDestroyOnLoad(gameObject);
         isInitialized = true;
+    }
+
+    private CMData GetCoffeeMakerById(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+            return null;
+
+        foreach (CMData data in coffeeMakerDatabase)
+        {
+            if (data != null && data.id == id)
+                return data;
+        }
+
+        Debug.LogWarning($"Could not find coffee maker with ID '{id}'");
+        return null;
     }
 
     private void OnApplicationPause(bool pauseStatus)
@@ -118,7 +145,7 @@ public class MobileSaveManager : MonoBehaviour
         {
             CoffeeMakerSaveData data = new CoffeeMakerSaveData
             {
-                coffeeMakerData = maker.coffeeMakerData,
+                coffeeMakerId = maker.coffeeMakerData != null ? maker.coffeeMakerData.id : null,
                 isBrewing = maker.IsBrewing(),
                 isReadyToSell = maker.IsReadyToSell(),
                 brewStartTime = maker.GetBrewStartTime()
@@ -150,12 +177,19 @@ public class MobileSaveManager : MonoBehaviour
         resourceManager.SetFameLevel(state.fameLevel);
         resourceManager.SetFameXP(state.xp);
 
-        for (int i = 0; i < 20; i++)
+        int slotCount = Mathf.Min(
+            sceneCoffeeMakers.Count,
+            state.coffeeMakers.Count
+        );
+
+        for (int i = 0; i < slotCount; i++)
         {
-            var savedData = state.coffeeMakers[i];
+            CoffeeMakerSaveData savedData = state.coffeeMakers[i];
+
+            CMData makerData = GetCoffeeMakerById(savedData.coffeeMakerId);
 
             sceneCoffeeMakers[i].RestoreOfflineState(
-                savedData.coffeeMakerData,
+                makerData,
                 savedData.isBrewing,
                 savedData.isReadyToSell,
                 savedData.brewStartTime

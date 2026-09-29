@@ -4,6 +4,7 @@ using UnityEngine;
 public class CMData : ScriptableObject
 {
     [Header("Identity")]
+    public string id;
     public string coffeeMakerName;
     public Sprite[] icons;
 
