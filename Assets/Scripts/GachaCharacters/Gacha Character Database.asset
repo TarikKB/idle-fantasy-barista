@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e92e1082d7894289fee6dffb22f7b, type: 3}
+  m_Name: Gacha Character Database
+  m_EditorClassIdentifier: Assembly-CSharp::GCDatabase
+  gachaCharacters:
+  - {fileID: 11400000, guid: c8969f2e60ae8c440be196377aaeb2ef, type: 2}
+  - {fileID: 11400000, guid: a573712639ea1d344b0c54a27b54e6a0, type: 2}
+  - {fileID: 11400000, guid: f0051acf1890d1d4c81fcac5b944fbd2, type: 2}
+  - {fileID: 11400000, guid: f6708db635cf3fa4aa5e6aaf20d8a23f, type: 2}
+  - {fileID: 11400000, guid: e53688e1b14801f4aa56d78b0d810730, type: 2}
+  - {fileID: 11400000, guid: 61fb589dd9427e247ae905b4dfc08b53, type: 2}
+  - {fileID: 11400000, guid: 2f4638b9947c82145a3cb9cd3c597aa0, type: 2}
+  - {fileID: 11400000, guid: 7151676efc840a94a84b9044f5d5e630, type: 2}
+  - {fileID: 11400000, guid: fcf40748c2ec34c4c8d50f04203a7b57, type: 2}
+  - {fileID: 11400000, guid: 6779a086231185045bdc581325322a36, type: 2}
+  - {fileID: 11400000, guid: 3584b3d2782060f4b84f1d7dfd7f5280, type: 2}
+  - {fileID: 11400000, guid: 889437f2e97705142bd8431768cf929a, type: 2}
+  - {fileID: 11400000, guid: 3ddeaee75bde617419180c4a3ce5a400, type: 2}
+  - {fileID: 11400000, guid: 7e175a4ec8115b948866e2e857fa2a79, type: 2}
