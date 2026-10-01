@@ -34,6 +34,9 @@ public class ResourceManagerScript : MonoBehaviour
     public UpgradeData upgradeData;
     private UpgradeDataTable upgradeDataTable;
 
+    [Header("Machine Ownership")]
+    public int purchasedMachineCount { get; private set; }
+
     private void OnEnable()
     {
         increaseGoldKey.Enable();
@@ -57,6 +60,16 @@ public class ResourceManagerScript : MonoBehaviour
             beans += beanRate * Time.deltaTime;
             UpdateBeansText();
         }
+    }
+
+    public void RegisterPurchasedMachine()
+    {
+        purchasedMachineCount++;
+    }
+
+    public void RegisterSoldMachine()
+    {
+        purchasedMachineCount = Mathf.Max(0, purchasedMachineCount - 1);
     }
 
     public void AddGold(float amount)

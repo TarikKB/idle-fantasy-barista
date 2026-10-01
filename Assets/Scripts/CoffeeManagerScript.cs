@@ -26,6 +26,7 @@ public class CoffeeManagerScript : MonoBehaviour
     public long GetBrewStartTime() => brewStartTime;
     public bool IsBrewing() => brewing;
     public bool IsReadyToSell() => readyToSell;
+    public bool IsEmpty() => empty || coffeeMakerData == null;
 
 
     void Awake()
@@ -387,6 +388,11 @@ public class CoffeeManagerScript : MonoBehaviour
 
         if (brewProgressSlider != null)
             brewProgressSlider.value = 0f;
+
+        if (resourceManager != null)
+        {
+            resourceManager.RegisterSoldMachine();
+        }
 
         coffeeMakerData = null;
         brewing = false;
