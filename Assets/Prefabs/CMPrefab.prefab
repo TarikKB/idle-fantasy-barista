@@ -170,11 +170,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeManagerScript
   coffeeMakerData: {fileID: 11400000, guid: e9f5a28725995de4faab964a37b9bf35, type: 2}
+  goldExplosionPrefab: {fileID: 6107468900144869817, guid: 6344ade8e10d0fc46a9fea19df8a2ce8, type: 3}
   makerSprite: {fileID: 8553064032551946078}
   brewing: 0
   readyToSell: 0
-  shelfSprites: []
   sellIndicator: {fileID: 7233251677927471772}
+  brewStartTime: 0
 --- !u!114 &5201418386816588070
 MonoBehaviour:
   m_ObjectHideFlags: 0

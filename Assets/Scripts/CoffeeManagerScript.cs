@@ -7,6 +7,7 @@ public class CoffeeManagerScript : MonoBehaviour
 {
     public CMData coffeeMakerData;
 
+    [SerializeField] private GameObject goldExplosionPrefab;
     private ResourceManagerScript resourceManager;
     private ShelfScript shelfManager;
     [SerializeField] private Image makerSprite;
@@ -349,6 +350,7 @@ public class CoffeeManagerScript : MonoBehaviour
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
             resourceManager.AddFameXP(10f * resourceManager.FameXPMultiplier);
+            Instantiate(goldExplosionPrefab, transform.position, Quaternion.identity);
         }
     }
 
