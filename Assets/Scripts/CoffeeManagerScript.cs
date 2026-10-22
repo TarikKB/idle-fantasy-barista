@@ -352,6 +352,23 @@ public class CoffeeManagerScript : MonoBehaviour
         }
     }
 
+    // Used by AutoBrewSellManager. Brews if the machine is idle and enough beans are available.
+    public bool TryAutoBrew()
+    {
+        if (IsEmpty() || brewing || readyToSell) return false;
+        if (resourceManager.beans < coffeeMakerData.beansRequired) return false;
+        BrewCoffee();
+        return true;
+    }
+
+    // Used by AutoBrewSellManager. Sells the finished coffee if one is ready.
+    public bool TryAutoSell()
+    {
+        if (IsEmpty() || !readyToSell) return false;
+        SellCoffee();
+        return true;
+    }
+
     public bool CanSellMachine() => !brewing && !readyToSell;
     public int GetSellValue() => Mathf.RoundToInt(coffeeMakerData.purchaseCost * 0.25f);
 
