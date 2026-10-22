@@ -171,8 +171,14 @@ public class MobileSaveManager : MonoBehaviour
         string json = File.ReadAllText(saveFilePath);
         GameState state = JsonUtility.FromJson<GameState>(json);
         long elapsedTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - state.saveTime;
+
+        // Restore upgrades first so bean rate/limit and multipliers reflect purchased levels.
+        string upgradeJson = File.ReadAllText(upgradeFilePath);
+        resourceManager.upgradeData = JsonUtility.FromJson<UpgradeData>(upgradeJson) ?? new UpgradeData();
+        resourceManager.ApplyUpgradeEffects();
+
         resourceManager.SetGold(state.gold);
-        resourceManager.SetBeans(state.beans + beanRate * elapsedTime); // Add beans for the time elapsed since last save
+        resourceManager.SetBeans(state.beans + resourceManager.beanRate * elapsedTime); // Add beans for the time elapsed since last save
         resourceManager.SetTickets(state.tickets);
         resourceManager.SetFameLevel(state.fameLevel);
         resourceManager.SetFameXP(state.xp);
@@ -196,9 +202,6 @@ public class MobileSaveManager : MonoBehaviour
             );
         }
 
-        string upgradeJson = File.ReadAllText(upgradeFilePath);
-        UpgradeData upgradeData = JsonUtility.FromJson<UpgradeData>(upgradeJson);
-        resourceManager.upgradeData = upgradeData;
         shelfManager.UpdateShelfSprites();
 
     }

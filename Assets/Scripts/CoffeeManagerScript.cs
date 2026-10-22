@@ -348,7 +348,7 @@ public class CoffeeManagerScript : MonoBehaviour
             SetMakerSprite(currentIconIndex);
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
-            resourceManager.AddFameXP(10f);
+            resourceManager.AddFameXP(10f * resourceManager.FameXPMultiplier);
         }
     }
 

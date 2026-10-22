@@ -18,7 +18,7 @@ public class UpgradeListing : MonoBehaviour
     public void UpdateText()
     {
         levelText.text = $"Level: {currentLevel + 1}";
-        float nextCost = upgradeLevelData.baseCost * Mathf.Pow(upgradeLevelData.costMultiplier, currentLevel);
-        costText.text = $"Cost: ${nextCost}";
+        float nextCost = upgradeLevelData.GetCost(currentLevel);
+        costText.text = $"Cost: ${nextCost:N0}";
     }
 }

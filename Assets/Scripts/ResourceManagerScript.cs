@@ -45,9 +45,18 @@ public class ResourceManagerScript : MonoBehaviour
         increaseBeansKey.performed += ctx => AddBeans(1000);
     }
 
+    private void Awake()
+    {
+        // Resolved in Awake so it's available when MobileSaveManager.Start loads the save.
+        upgradeDataTable = GetComponent<UpgradeDataTable>();
+        if (upgradeDataTable == null)
+        {
+            upgradeDataTable = FindFirstObjectByType<UpgradeDataTable>();
+        }
+    }
+
     void Start()
     {
-        upgradeDataTable = FindFirstObjectByType<UpgradeDataTable>();
         // upgradeData.beanRateLevel = 3;
         // AddGold(100);
     }
@@ -163,9 +172,25 @@ public class ResourceManagerScript : MonoBehaviour
         }
     }
 
+    [Header("Upgrade Caps")]
+    [Tooltip("Maximum ticket drop chance per sale (0-1).")]
+    [SerializeField] private float maxTicketChance = 0.25f;
+
+    public float FameXPMultiplier => upgradeDataTable.fameBonusUpgrade.GetValue(upgradeData.fameBonusLevel);
+
+    public float TicketChance => Mathf.Min(upgradeDataTable.ticketRateUpgrade.GetValue(upgradeData.ticketRateLevel), maxTicketChance);
+
+    // Recomputes all upgrade-derived stats from the current upgrade levels (call after loading or resetting).
+    public void ApplyUpgradeEffects()
+    {
+        beanRate = upgradeDataTable.beanRateUpgrade.GetValue(upgradeData.beanRateLevel);
+        beanLimit = upgradeDataTable.beanLimitUpgrade.GetValue(upgradeData.beanLimitLevel);
+        sellPriceMultiplier = upgradeDataTable.sellPriceUpgrade.GetValue(upgradeData.sellPriceLevel);
+    }
+
     public void TicketCheck()
     {
-        float ticketRate = upgradeDataTable.ticketRateUpgrade.baseValue + (upgradeData.ticketRateLevel * upgradeDataTable.ticketRateUpgrade.valueScale);
+        float ticketRate = TicketChance;
         // print(ticketRate);
         if (Random.Range(0f, 1f) < ticketRate)
         {
@@ -240,7 +265,7 @@ public class ResourceManagerScript : MonoBehaviour
         SetFameLevel(1);
         SetFameXP(0f);
         fameXPThreshold = 100f;
-        beanRate = 1f;
+        ApplyUpgradeEffects();
     }
     
 }

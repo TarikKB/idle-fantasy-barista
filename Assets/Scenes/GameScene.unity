@@ -400,6 +400,7 @@ MonoBehaviour:
     sellPriceLevel: 0
     ticketRateLevel: 0
     fameBonusLevel: 0
+  maxTicketChance: 0.25
 --- !u!114 &33530195
 MonoBehaviour:
   m_ObjectHideFlags: 0
