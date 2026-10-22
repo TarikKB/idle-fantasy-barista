@@ -350,7 +350,10 @@ public class CoffeeManagerScript : MonoBehaviour
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
             resourceManager.AddFameXP(10f * resourceManager.FameXPMultiplier);
-            Instantiate(goldExplosionPrefab, transform.position, Quaternion.identity);
+            if (goldExplosionPrefab != null)
+            {
+                Instantiate(goldExplosionPrefab, transform.position, goldExplosionPrefab.transform.rotation);
+            }
         }
     }
 
