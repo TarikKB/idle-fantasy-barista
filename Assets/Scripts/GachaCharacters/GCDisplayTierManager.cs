@@ -23,6 +23,9 @@ public class GCDisplayTierManager : MonoBehaviour
     [SerializeField] private int mythicalRows = 2;
     [SerializeField] private float cellHeightToWidthRatio = 2.6f;
 
+    [Header("Summon Result")]
+    [SerializeField] private Transform summonResultDisplay;
+
     private GridLayoutGroup gridLayout;
     private RectTransform gridRect;
 
@@ -52,6 +55,12 @@ public class GCDisplayTierManager : MonoBehaviour
         PopulateGrid(mythicalColumns, mythicalRows, mythicalTier);
     }
 
+    public void PopulateSummonResult(int count, GCData[] results)
+    {
+        EnsureReferences();
+        PopulateSummonResultGrid(count, results);
+    }
+
     private void PopulateGrid(int columns, int rows, params int[] tierIds)
     {
         if (database == null || unitDisplayGrid == null || gachaCellPrefab == null || gridLayout == null || gridRect == null)
@@ -77,6 +86,52 @@ public class GCDisplayTierManager : MonoBehaviour
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(gridRect);
+    }
+
+    private void PopulateSummonResultGrid(int count, GCData[] results)
+    {
+        if (unitDisplayGrid == null || gridLayout == null || gridRect == null ||
+            summonResultDisplay == null || gachaCellPrefab == null || results == null)
+        {
+            return;
+        }
+
+        Vector2 cellSize = CalculateCellSize(regularColumns, regularRows);
+        Transform previousGrid = unitDisplayGrid;
+        GridLayoutGroup previousLayout = gridLayout;
+        RectTransform previousRect = gridRect;
+
+        try
+        {
+            unitDisplayGrid = summonResultDisplay;
+            gridLayout = summonResultDisplay.GetComponent<GridLayoutGroup>();
+            gridRect = summonResultDisplay as RectTransform;
+
+            if (gridLayout == null || gridRect == null)
+            {
+                return;
+            }
+
+            DestroyChildren();
+            int columns = Mathf.Min(Mathf.Max(count, 1), Mathf.Max(regularColumns, 1));
+            ApplyGridLayout(columns, cellSize);
+
+            foreach (GCData data in results)
+            {
+                if (data != null)
+                {
+                    SpawnCell(data, GetTierColor(data.tier), cellSize);
+                }
+            }
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(gridRect);
+        }
+        finally
+        {
+            unitDisplayGrid = previousGrid;
+            gridLayout = previousLayout;
+            gridRect = previousRect;
+        }
     }
 
     private Vector2 CalculateCellSize(int columns, int rows)

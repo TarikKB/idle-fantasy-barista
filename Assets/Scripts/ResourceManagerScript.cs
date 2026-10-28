@@ -10,6 +10,7 @@ public class ResourceManagerScript : MonoBehaviour
     public float sellPriceMultiplier = 1f;
     [SerializeField] private InputAction increaseGoldKey;
     [SerializeField] private InputAction increaseBeansKey;
+    [SerializeField] private InputAction increaseTicketKey;
 
     [Header("Beans")]
     public TextMeshProUGUI beansText;
@@ -43,6 +44,8 @@ public class ResourceManagerScript : MonoBehaviour
         increaseGoldKey.performed += ctx => AddGold(1000);
         increaseBeansKey.Enable();
         increaseBeansKey.performed += ctx => AddBeans(1000);
+        increaseTicketKey.Enable();
+        increaseTicketKey.performed += ctx => AddTickets(100);
     }
 
     private void Awake()
