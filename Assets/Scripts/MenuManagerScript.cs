@@ -10,6 +10,7 @@ public class MenuManagerScript : MonoBehaviour
     [SerializeField] private GameObject[] panels;
     [SerializeField] private GameObject coffeeMakerCataloguePanel;
     [SerializeField] private GameObject upgradePanel;
+    [SerializeField] private GameObject gachaPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private CMCatalogueScript coffeeMakerCatalogueScript;
     [SerializeField] private GameObject sellCoffeePanel;
@@ -85,6 +86,24 @@ public class MenuManagerScript : MonoBehaviour
             upgradePanel.SetActive(true);
             resourceManager.GetComponent<UpgradeDataTable>().GetData();
         }   
+    }
+
+    public void ToggleGachaMenu()
+    {
+        if (gachaPanel != null && gachaPanel.activeSelf)
+        {
+            CloseActivePanel();
+        }
+        else if (gachaPanel != null)
+        {
+            CloseActivePanel();
+            gachaPanel.SetActive(true);
+            GCTierScript tierScript = gachaPanel.GetComponentInChildren<GCTierScript>();
+            if (tierScript != null)
+            {
+                tierScript.RefreshCurrentTier();
+            }
+        }
     }
 
     public void ToggleSettingsMenu()

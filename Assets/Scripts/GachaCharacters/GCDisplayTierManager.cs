@@ -28,17 +28,27 @@ public class GCDisplayTierManager : MonoBehaviour
 
     void Awake()
     {
-        gridLayout = unitDisplayGrid.GetComponent<GridLayoutGroup>();
-        gridRect = unitDisplayGrid as RectTransform;
+        EnsureReferences();
+    }
+
+    private void EnsureReferences()
+    {
+        if (unitDisplayGrid != null)
+        {
+            if (gridLayout == null) gridLayout = unitDisplayGrid.GetComponent<GridLayoutGroup>();
+            if (gridRect == null) gridRect = unitDisplayGrid as RectTransform;
+        }
     }
 
     public void PopulateTier(int row1Tier, int row2Tier)
     {
+        EnsureReferences();
         PopulateGrid(regularColumns, regularRows, row1Tier, row2Tier);
     }
 
     public void PopulateMythicalTier(int mythicalTier = 5)
     {
+        EnsureReferences();
         PopulateGrid(mythicalColumns, mythicalRows, mythicalTier);
     }
 

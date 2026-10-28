@@ -9,6 +9,24 @@ public class GCTierScript : MonoBehaviour
     [SerializeField] private GCDisplayTierManager populateBoxes;
 
     void Start() => populateBoxes.PopulateTier(1, 2);
+
+    public void RefreshCurrentTier()
+    {
+        if (populateBoxes == null) return;
+
+        switch (currentTier)
+        {
+            case TierGroup.CommonRare:
+                populateBoxes.PopulateTier(1, 2);
+                break;
+            case TierGroup.EpicLegendary:
+                populateBoxes.PopulateTier(3, 4);
+                break;
+            case TierGroup.Mythical:
+                populateBoxes.PopulateMythicalTier();
+                break;
+        }
+    }
     
     public void ShowCommonRare()
     {
