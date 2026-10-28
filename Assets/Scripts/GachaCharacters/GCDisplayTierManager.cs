@@ -7,6 +7,8 @@ public class GCDisplayTierManager : MonoBehaviour
     [SerializeField] private GCDatabase database;
     [SerializeField] private GameObject gachaCellPrefab;
     [SerializeField] private Transform unitDisplayGrid;
+    private GridLayoutGroup gridLayout;
+    private RectTransform gridRect;
     [SerializeField] private Color commonUnit = new Color(0.86f, 0.86f, 0.86f);
     [SerializeField] private Color rareUnit =  new Color(0.9f, 0.75f, 0.2f);
     [SerializeField] private Color epicUnit = new Color(0.718f, 0.431f, 0.475f);
@@ -25,9 +27,10 @@ public class GCDisplayTierManager : MonoBehaviour
 
     [Header("Summon Result")]
     [SerializeField] private Transform summonResultDisplay;
+    private GridLayoutGroup summonResultGridLayout;
+    private RectTransform summonResultGridRect;
 
-    private GridLayoutGroup gridLayout;
-    private RectTransform gridRect;
+    
 
     void Awake()
     {
@@ -40,6 +43,11 @@ public class GCDisplayTierManager : MonoBehaviour
         {
             if (gridLayout == null) gridLayout = unitDisplayGrid.GetComponent<GridLayoutGroup>();
             if (gridRect == null) gridRect = unitDisplayGrid as RectTransform;
+        }
+        if (summonResultDisplay != null)
+        {
+            if (summonResultGridLayout == null) summonResultGridLayout = summonResultDisplay.GetComponent<GridLayoutGroup>();
+            if (summonResultGridRect == null) summonResultGridRect = summonResultDisplay as RectTransform;
         }
     }
 
@@ -96,7 +104,7 @@ public class GCDisplayTierManager : MonoBehaviour
             return;
         }
 
-        Vector2 cellSize = CalculateCellSize(regularColumns, regularRows);
+        
         Transform previousGrid = unitDisplayGrid;
         GridLayoutGroup previousLayout = gridLayout;
         RectTransform previousRect = gridRect;
@@ -106,6 +114,18 @@ public class GCDisplayTierManager : MonoBehaviour
             unitDisplayGrid = summonResultDisplay;
             gridLayout = summonResultDisplay.GetComponent<GridLayoutGroup>();
             gridRect = summonResultDisplay as RectTransform;
+            summonResultGridLayout = gridLayout;
+            summonResultGridRect = gridRect;
+            Vector2 cellSize;
+            
+            if (count > 1)
+            {
+                cellSize = CalculateCellSize(count / 2, 2);
+            }
+            else
+            {
+                cellSize = CalculateCellSize(3, 2);
+            }
 
             if (gridLayout == null || gridRect == null)
             {
@@ -113,7 +133,7 @@ public class GCDisplayTierManager : MonoBehaviour
             }
 
             DestroyChildren();
-            int columns = Mathf.Min(Mathf.Max(count, 1), Mathf.Max(regularColumns, 1));
+            int columns = Mathf.Min(Mathf.Max(count, 1), Mathf.Max(5, 1));
             ApplyGridLayout(columns, cellSize);
 
             foreach (GCData data in results)
@@ -131,6 +151,8 @@ public class GCDisplayTierManager : MonoBehaviour
             unitDisplayGrid = previousGrid;
             gridLayout = previousLayout;
             gridRect = previousRect;
+            summonResultGridLayout = null;
+            summonResultGridRect = null;
         }
     }
 

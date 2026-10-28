@@ -13894,8 +13894,8 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: a1f46f30f251e744a83734b036136375, type: 2}
   gachaCellPrefab: {fileID: 7240548309273020621, guid: cf2a46838dd5380469742d335e11efbe, type: 3}
   unitDisplayGrid: {fileID: 174123457}
-  commonUnit: {r: 0.86, g: 0.86, b: 0.86, a: 1}
-  rareUnit: {r: 0.9, g: 0.75, b: 0.2, a: 1}
+  commonUnit: {r: 0.08646317, g: 0.6320754, b: 0.08646317, a: 1}
+  rareUnit: {r: 0.23362409, g: 0.6603774, b: 0.65217054, a: 1}
   epicUnit: {r: 0.718, g: 0.431, b: 0.475, a: 1}
   legendaryUnit: {r: 1, g: 0.843, b: 0, a: 1}
   mythicalUnit: {r: 0.33, g: 0, b: 0.11, a: 1}
@@ -15727,6 +15727,7 @@ MonoBehaviour:
   - {fileID: 662883441}
   - {fileID: 1312120399}
   - {fileID: 1790985449}
+  - {fileID: 1109423147}
   coffeeMakerCataloguePanel: {fileID: 574305259}
   upgradePanel: {fileID: 662883441}
   gachaPanel: {fileID: 1790985449}
@@ -17409,7 +17410,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -200, y: -200}
+  m_SizeDelta: {x: -100, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925564223
 MonoBehaviour:
@@ -17431,10 +17432,10 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 270, y: 700}
+  m_CellSize: {x: 180, y: 400}
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 1
-  m_ConstraintCount: 4
+  m_ConstraintCount: 5
 --- !u!114 &1925564224
 MonoBehaviour:
   m_ObjectHideFlags: 0
