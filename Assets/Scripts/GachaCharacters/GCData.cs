@@ -4,6 +4,8 @@ using UnityEngine;
 public class GCData : ScriptableObject
 {   
     [Header("Identity")]
+    // Stable save key, never change once shipped (renaming characterName is safe)
+    public string id;
     public string characterName;
     public int tier;
 

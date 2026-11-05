@@ -36,6 +36,19 @@ public class UpgradeData
 
 }
 
+[Serializable]
+public class OwnedCharacterSaveData
+{
+    public string characterId;
+    public int level;
+    public int copies;
+}
+
+[Serializable]
+public class RosterSaveData
+{
+    public List<OwnedCharacterSaveData> ownedCharacters = new List<OwnedCharacterSaveData>();
+}
 
 
 public class MobileSaveManager : MonoBehaviour
@@ -47,10 +60,12 @@ public class MobileSaveManager : MonoBehaviour
 
     private string saveFilePath;
     private string upgradeFilePath;
+    private string staffFilePath;
     private bool isInitialized = false;
 
     private ResourceManagerScript resourceManager;
     private ShelfScript shelfManager;
+    private GCRosterManager rosterManager;
 
     private float beanRate;
 
@@ -68,12 +83,15 @@ public class MobileSaveManager : MonoBehaviour
 
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
         shelfManager = FindFirstObjectByType<ShelfScript>();
+        rosterManager = FindFirstObjectByType<GCRosterManager>();
 
         beanRate = resourceManager != null ? resourceManager.beanRate : 0f;
 
         saveFilePath = Path.Combine(Application.persistentDataPath, "coffeesave.json");
 
         upgradeFilePath = Path.Combine(Application.persistentDataPath, "upgradesave.json");
+
+        staffFilePath = Path.Combine(Application.persistentDataPath, "staffsave.json");
     }
 
     private void Start()
@@ -127,7 +145,15 @@ public class MobileSaveManager : MonoBehaviour
         {
             File.Delete(upgradeFilePath);
         }
+        if (File.Exists(staffFilePath))
+        {
+            File.Delete(staffFilePath);
+        }
         resourceManager.ResetData();
+        if (rosterManager != null)
+        {
+            rosterManager.Clear();
+        }
         foreach (var maker in sceneCoffeeMakers)
         {
             maker.DeleteMachine();
@@ -162,10 +188,22 @@ public class MobileSaveManager : MonoBehaviour
         string json = JsonUtility.ToJson(state, true);
         File.WriteAllText(saveFilePath, json);
         File.WriteAllText(upgradeFilePath, JsonUtility.ToJson(upgradeData, true));
+
+        if (rosterManager != null)
+        {
+            File.WriteAllText(staffFilePath, JsonUtility.ToJson(rosterManager.ToSaveData(), true));
+        }
     }
 
     public void LoadGame()
     {
+        // Loaded independently of the other files so a missing staff save (e.g. older installs) never blocks the rest
+        if (rosterManager != null && File.Exists(staffFilePath))
+        {
+            string staffJson = File.ReadAllText(staffFilePath);
+            rosterManager.LoadFromSaveData(JsonUtility.FromJson<RosterSaveData>(staffJson));
+        }
+
         if (!File.Exists(saveFilePath)) return;
         if (!File.Exists(upgradeFilePath)) return;
         string json = File.ReadAllText(saveFilePath);

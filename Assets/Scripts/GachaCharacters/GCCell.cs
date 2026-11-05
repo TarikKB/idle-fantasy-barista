@@ -9,14 +9,20 @@ public class GCCell : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
 
 
-    public void Setup(GCData data, Color boxColor, int level)
-    {   
+    // copiesNeeded of -1 means max level
+    public void Setup(GCData data, Color boxColor, int level, int copies = 0, int copiesNeeded = -1)
+    {
         bool owned = level > 0;
         backgroundImage.color = boxColor;
         if (data != null && nameText != null)
         {
             nameText.text = owned ? data.characterName : "???";
-            levelText.text = owned ? $"Level {level}" : "???";
+            if (!owned)
+                levelText.text = "???";
+            else if (copiesNeeded > 0)
+                levelText.text = $"Level {level} ({copies}/{copiesNeeded})";
+            else
+                levelText.text = $"Level {level} (MAX)";
 
             // nameText.fontSize
         }

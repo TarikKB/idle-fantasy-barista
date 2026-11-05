@@ -30,11 +30,36 @@ public class GCDisplayTierManager : MonoBehaviour
     private GridLayoutGroup summonResultGridLayout;
     private RectTransform summonResultGridRect;
 
-    
+    // Last page shown, so it can be redrawn when the roster changes
+    private System.Action refreshCurrentPage;
+    private bool needsRefresh;
 
     void Awake()
     {
         EnsureReferences();
+        if (roster != null) roster.OnRosterChanged += HandleRosterChanged;
+    }
+
+    void OnDestroy()
+    {
+        if (roster != null) roster.OnRosterChanged -= HandleRosterChanged;
+    }
+
+    void OnEnable()
+    {
+        if (needsRefresh)
+        {
+            needsRefresh = false;
+            refreshCurrentPage?.Invoke();
+        }
+    }
+
+    private void HandleRosterChanged()
+    {
+        if (isActiveAndEnabled)
+            refreshCurrentPage?.Invoke();
+        else
+            needsRefresh = true;
     }
 
     private void EnsureReferences()
@@ -54,12 +79,14 @@ public class GCDisplayTierManager : MonoBehaviour
     public void PopulateTier(int row1Tier, int row2Tier)
     {
         EnsureReferences();
+        refreshCurrentPage = () => PopulateTier(row1Tier, row2Tier);
         PopulateGrid(regularColumns, regularRows, row1Tier, row2Tier);
     }
 
     public void PopulateMythicalTier(int mythicalTier = 5)
     {
         EnsureReferences();
+        refreshCurrentPage = () => PopulateMythicalTier(mythicalTier);
         PopulateGrid(mythicalColumns, mythicalRows, mythicalTier);
     }
 
@@ -220,6 +247,8 @@ public class GCDisplayTierManager : MonoBehaviour
     private void SpawnCell(GCData data, Color bgColor, Vector2 cellSize)
     {
         int level = roster != null ? roster.GetLevel(data) : 0;
+        int copies = roster != null ? roster.GetCopies(data) : 0;
+        int copiesNeeded = roster != null ? roster.GetCopiesForNextLevel(data) : -1;
         GameObject cellObj = Instantiate(gachaCellPrefab, unitDisplayGrid);
 
         var rt = (RectTransform)cellObj.transform;
@@ -243,7 +272,7 @@ public class GCDisplayTierManager : MonoBehaviour
         layoutElement.flexibleHeight = 0f;
 
         GCCell cell = cellObj.GetComponent<GCCell>();
-        cell.Setup(data, bgColor, level);
+        cell.Setup(data, bgColor, level, copies, copiesNeeded);
     }
 
     private Color GetTierColor(int rowTier)

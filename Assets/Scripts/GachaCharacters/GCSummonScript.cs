@@ -6,6 +6,7 @@ public class GCSummonScript : MonoBehaviour
 
     [SerializeField] private ResourceManagerScript resourceManager;
     [SerializeField] private GameObject summonResultPanel;
+    [SerializeField] private GCRosterManager roster;
 
     [Header("Tier Catalogues")]
     [SerializeField] private GCDatabase characterDatabase;
@@ -104,6 +105,18 @@ public class GCSummonScript : MonoBehaviour
                     results[i] = tier5Catalogue[Random.Range(0, tier5Catalogue.Count)];
                     break;
             }
+        }
+
+        // Add to the roster before displaying so result cells show the updated levels
+        if (roster != null)
+        {
+            roster.AddCharacters(results);
+        }
+
+        // Save immediately so a crash can't lose spent tickets and their pulls
+        if (MobileSaveManager.Instance != null)
+        {
+            MobileSaveManager.Instance.SaveGame();
         }
 
         if (summonResultPanel != null)

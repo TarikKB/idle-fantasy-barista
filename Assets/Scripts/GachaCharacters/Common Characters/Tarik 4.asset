@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b2c53c979ace24e92ee499bc9be546, type: 3}
   m_Name: Tarik 4
   m_EditorClassIdentifier: Assembly-CSharp::GCData
+  id: t1_tarik_4
   characterName: Tarik 4
   tier: 1
