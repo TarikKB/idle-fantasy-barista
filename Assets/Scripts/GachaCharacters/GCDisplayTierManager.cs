@@ -18,8 +18,46 @@ public class GCDisplayTierManager : MonoBehaviour
     [SerializeField] private Color errorColor = new Color(0f, 0f, 0f);
     [SerializeField] private int numUnitsPerTier = 4;
     [SerializeField] private GCRosterManager roster;
+    [SerializeField] private TMPro.TextMeshProUGUI employeeTeamText;
+    [Header("Collection Paging")]
+    [SerializeField] private UnityEngine.UI.Button previousPageButton;
+    [SerializeField] private UnityEngine.UI.Button nextPageButton;
+    [SerializeField] private TMPro.TextMeshProUGUI pageText;
+    private int currentPage;
+    private int[] selectedTiers = { 1, 2 };
+    private bool mythicalPage;
+    public int CurrentPage => currentPage;
+    public int PageCount => database == null ? 1 : Mathf.Max(1, selectedTiers.Max(tier =>
+        Mathf.CeilToInt(database.gachaCharacters.Count(data => data != null && data.tier == tier) / (float)Mathf.Max(1, numUnitsPerTier))));
 
-    [SerializeField] private int regularColumns = 4;
+    public void PreviousPage()
+    {
+        currentPage = Mathf.Max(0, currentPage - 1);
+        RedrawCurrentPage();
+    }
+
+    public void NextPage()
+    {
+        currentPage = Mathf.Min(PageCount - 1, currentPage + 1);
+        RedrawCurrentPage();
+    }
+
+    private void RedrawCurrentPage()
+    {
+        currentPage = Mathf.Clamp(currentPage, 0, PageCount - 1);
+        PopulateGrid(mythicalPage ? mythicalColumns : regularColumns, mythicalPage ? mythicalRows : regularRows, selectedTiers);
+        if (pageText != null) pageText.text = $"Page {currentPage + 1} / {PageCount}";
+        if (previousPageButton != null) previousPageButton.interactable = currentPage > 0;
+        if (nextPageButton != null) nextPageButton.interactable = currentPage + 1 < PageCount;
+    }
+
+    private void RefreshTeamSummary()
+    {
+        if (employeeTeamText != null && roster != null)
+            employeeTeamText.text = roster.GetTeamSummary() + "\nTap Assign on an owned employee. Remove one to change a full team.";
+    }
+
+    [SerializeField] private int regularColumns= 4;
     [SerializeField] private int regularRows = 2;
     [SerializeField] private int mythicalColumns = 2;
     [SerializeField] private int mythicalRows = 2;
@@ -38,15 +76,20 @@ public class GCDisplayTierManager : MonoBehaviour
     {
         EnsureReferences();
         if (roster != null) roster.OnRosterChanged += HandleRosterChanged;
+        if (previousPageButton != null) previousPageButton.onClick.AddListener(PreviousPage);
+        if (nextPageButton != null) nextPageButton.onClick.AddListener(NextPage);
     }
 
     void OnDestroy()
     {
         if (roster != null) roster.OnRosterChanged -= HandleRosterChanged;
+        if (previousPageButton != null) previousPageButton.onClick.RemoveListener(PreviousPage);
+        if (nextPageButton != null) nextPageButton.onClick.RemoveListener(NextPage);
     }
 
     void OnEnable()
     {
+        RefreshTeamSummary();
         if (needsRefresh)
         {
             needsRefresh = false;
@@ -56,6 +99,7 @@ public class GCDisplayTierManager : MonoBehaviour
 
     private void HandleRosterChanged()
     {
+        RefreshTeamSummary();
         if (isActiveAndEnabled)
             refreshCurrentPage?.Invoke();
         else
@@ -79,15 +123,21 @@ public class GCDisplayTierManager : MonoBehaviour
     public void PopulateTier(int row1Tier, int row2Tier)
     {
         EnsureReferences();
-        refreshCurrentPage = () => PopulateTier(row1Tier, row2Tier);
-        PopulateGrid(regularColumns, regularRows, row1Tier, row2Tier);
+        if (mythicalPage || selectedTiers.Length != 2 || selectedTiers[0] != row1Tier || selectedTiers[1] != row2Tier) currentPage = 0;
+        mythicalPage = false;
+        selectedTiers = new[] { row1Tier, row2Tier };
+        refreshCurrentPage = RedrawCurrentPage;
+        RedrawCurrentPage();
     }
 
     public void PopulateMythicalTier(int mythicalTier = 5)
     {
         EnsureReferences();
-        refreshCurrentPage = () => PopulateMythicalTier(mythicalTier);
-        PopulateGrid(mythicalColumns, mythicalRows, mythicalTier);
+        if (!mythicalPage || selectedTiers[0] != mythicalTier) currentPage = 0;
+        mythicalPage = true;
+        selectedTiers = new[] { mythicalTier };
+        refreshCurrentPage = RedrawCurrentPage;
+        RedrawCurrentPage();
     }
 
     public void PopulateSummonResult(int count, GCData[] results)
@@ -111,7 +161,8 @@ public class GCDisplayTierManager : MonoBehaviour
         {
             var characters = database.gachaCharacters
                 .Where(c => c != null && c.tier == tierId)
-                .Take(numUnitsPerTier);
+                .Skip(currentPage * Mathf.Max(1, numUnitsPerTier))
+                .Take(Mathf.Max(1, numUnitsPerTier));
 
             Color tierColor = GetTierColor(tierId);
             foreach (GCData data in characters)
@@ -273,6 +324,7 @@ public class GCDisplayTierManager : MonoBehaviour
 
         GCCell cell = cellObj.GetComponent<GCCell>();
         cell.Setup(data, bgColor, level, copies, copiesNeeded);
+        cell.SetupAssignment(data, roster, unitDisplayGrid != summonResultDisplay);
     }
 
     private Color GetTierColor(int rowTier)

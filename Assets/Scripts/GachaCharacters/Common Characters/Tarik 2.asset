@@ -15,3 +15,6 @@ MonoBehaviour:
   id: t1_tarik_2
   characterName: Tarik 2
   tier: 1
+  buffType: 1
+  baseBonus: 0.05
+  bonusPerLevel: 0.02

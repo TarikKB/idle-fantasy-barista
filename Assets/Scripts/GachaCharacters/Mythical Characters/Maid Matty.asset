@@ -15,3 +15,7 @@ MonoBehaviour:
   id: t5_maid_matty
   characterName: Maid Maty
   tier: 5
+  buffType: 11
+  baseBonus: 0.04
+  bonusPerLevel: 0.005
+  targetMachine: {fileID: 11400000, guid: 9af0bc523a1148142bd453599ad11fcc, type: 2}

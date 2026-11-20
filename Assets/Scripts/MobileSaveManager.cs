@@ -11,14 +11,15 @@ public class CoffeeMakerSaveData
     public bool isBrewing;
     public bool isReadyToSell;
     public long brewStartTime;
+    public float brewDurationSeconds;
 }
 
 [Serializable]
 public class GameState
 {
     public List<CoffeeMakerSaveData> coffeeMakers = new List<CoffeeMakerSaveData>();
-    public int gold = 100;
-    public int beans = 0;
+    public float gold = 100f;
+    public float beans = 0f;
     public int tickets = 0;
     public int fameLevel = 1;
     public float xp = 0f;
@@ -48,6 +49,7 @@ public class OwnedCharacterSaveData
 public class RosterSaveData
 {
     public List<OwnedCharacterSaveData> ownedCharacters = new List<OwnedCharacterSaveData>();
+    public List<string> assignedCharacterIds = new List<string>();
 }
 
 
@@ -174,14 +176,15 @@ public class MobileSaveManager : MonoBehaviour
                 coffeeMakerId = maker.coffeeMakerData != null ? maker.coffeeMakerData.id : null,
                 isBrewing = maker.IsBrewing(),
                 isReadyToSell = maker.IsReadyToSell(),
-                brewStartTime = maker.GetBrewStartTime()
+                brewStartTime = maker.GetBrewStartTime(),
+                brewDurationSeconds = maker.GetBrewDurationSeconds()
             };
 
             state.coffeeMakers.Add(data);
         }
-        state.gold = resourceManager != null ? (int)resourceManager.gold : 0;
-        state.beans = resourceManager != null ? (int)resourceManager.beans : 0;
-        state.tickets = resourceManager != null ? (int)resourceManager.tickets : 0;
+        state.gold = resourceManager != null ? resourceManager.gold : 0f;
+        state.beans = resourceManager != null ? resourceManager.beans : 0f;
+        state.tickets= resourceManager != null ? (int)resourceManager.tickets : 0;
         state.fameLevel = resourceManager != null ? resourceManager.fameLevel : 0;
         state.xp = resourceManager != null ? resourceManager.xp : 0;
 
@@ -216,7 +219,7 @@ public class MobileSaveManager : MonoBehaviour
         resourceManager.ApplyUpgradeEffects();
 
         resourceManager.SetGold(state.gold);
-        resourceManager.SetBeans(state.beans + resourceManager.beanRate * elapsedTime); // Add beans for the time elapsed since last save
+        resourceManager.SetBeans(state.beans + resourceManager.EffectiveBeanRate * Mathf.Max(0, elapsedTime));
         resourceManager.SetTickets(state.tickets);
         resourceManager.SetFameLevel(state.fameLevel);
         resourceManager.SetFameXP(state.xp);
@@ -236,7 +239,8 @@ public class MobileSaveManager : MonoBehaviour
                 makerData,
                 savedData.isBrewing,
                 savedData.isReadyToSell,
-                savedData.brewStartTime
+                savedData.brewStartTime,
+                savedData.brewDurationSeconds
             );
         }
 

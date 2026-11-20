@@ -21,8 +21,16 @@ public class GCSummonScript : MonoBehaviour
     void Start()
     {
         displayTierManager = GetComponent<GCDisplayTierManager>();
+        tier1Catalogue = new List<GCData>();
+        tier2Catalogue = new List<GCData>();
+        tier3Catalogue = new List<GCData>();
+        tier4Catalogue = new List<GCData>();
+        tier5Catalogue = new List<GCData>();
+        if (characterDatabase == null) return;
+        var seen = new HashSet<string>();
         foreach (GCData charData in characterDatabase.gachaCharacters)
         {
+            if (charData == null || string.IsNullOrEmpty(charData.id) || !seen.Add(charData.id)) continue;
             switch (charData.tier)
             {
                 case 1:

@@ -15,3 +15,6 @@ MonoBehaviour:
   id: t5_maid_gio
   characterName: Maid Gio
   tier: 5
+  buffType: 3
+  baseBonus: 0.08
+  bonusPerLevel: 0.03

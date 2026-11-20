@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b2c53c979ace24e92ee499bc9be546, type: 3}
+  m_Name: Sera the Barista
+  m_EditorClassIdentifier: Assembly-CSharp::GCData
+  id: t3_sera_barista
+  characterName: Sera the Barista
+  tier: 3
+  buffType: 9
+  baseBonus: 0.1
+  bonusPerLevel: 0.04
+  targetMachine: {fileID: 11400000, guid: 5446c1308093b5d4cb36921b705c5351, type: 2}

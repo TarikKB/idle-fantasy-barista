@@ -15,3 +15,7 @@ MonoBehaviour:
   id: t3_matty
   characterName: Matty
   tier: 3
+  buffType: 8
+  baseBonus: 0.1
+  bonusPerLevel: 0.04
+  targetMachine: {fileID: 11400000, guid: e9f5a28725995de4faab964a37b9bf35, type: 2}

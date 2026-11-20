@@ -15,3 +15,7 @@ MonoBehaviour:
   id: t2_gio_2
   characterName: Gio 2
   tier: 2
+  buffType: 5
+  baseBonus: 0.02
+  bonusPerLevel: 0.005
+  targetMachine: {fileID: 0}

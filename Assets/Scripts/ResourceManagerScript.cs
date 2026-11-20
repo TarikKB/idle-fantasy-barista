@@ -48,8 +48,65 @@ public class ResourceManagerScript : MonoBehaviour
         increaseTicketKey.performed += ctx => AddTickets(100);
     }
 
+    [Header("Employees")]
+    [SerializeField] private GCRosterManager employeeRoster;
+    private float employeeBeanMultiplier = 1f;
+    private float employeeSaleMultiplier = 1f;
+    private float employeeFameMultiplier = 1f;
+    private float employeeStorageMultiplier = 1f;
+    private float employeeCostReduction;
+    private float employeeTicketChance;
+    private float employeeTipChance;
+    [SerializeField, Range(0f, 1f)] private float maxBeanCostReduction = 0.25f;
+    [SerializeField, Range(0f, 1f)] private float maxTipChance = 0.25f;
+    [SerializeField, Min(0f)] private float tipGoldBonus = 0.5f;
+    public float BrewingSpeedMultiplier { get; private set; } = 1f;
+    public float EffectiveBeanRate => beanRate * employeeBeanMultiplier;
+    public float EffectiveBeanLimit => beanLimit * employeeStorageMultiplier;
+    public float EffectiveSellPriceMultiplier => sellPriceMultiplier * employeeSaleMultiplier;
+    public float TipChance => Mathf.Clamp(employeeTipChance, 0f, maxTipChance);
+
+    public float GetEffectiveBeanCost(CMData machine)
+    {
+        if (machine == null) return 0f;
+        float reduction = employeeCostReduction + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.ArcaneEfficiency, machine) : 0f);
+        return machine.beansRequired * (1f - Mathf.Clamp(reduction, 0f, maxBeanCostReduction));
+    }
+
+    public float GetBrewingSpeedMultiplier(CMData machine) => BrewingSpeedMultiplier +
+        (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.EspressoVirtuoso, machine) : 0f);
+
+    public float GetSellPriceMultiplier(CMData machine) => sellPriceMultiplier * (employeeSaleMultiplier +
+        (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.HouseBlendExpert, machine) + employeeRoster.GetBuffBonus(EmployeeBuffType.ManaResonance, machine) : 0f));
+
+    public float GetFameXPMultiplier(CMData machine) => upgradeDataTable.fameBonusUpgrade.GetValue(upgradeData.fameBonusLevel) *
+        (employeeFameMultiplier + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.SignatureRoast, machine) : 0f));
+
+    // Isolated roll evaluation permits deterministic verification without changing global random state.
+    public float GetTipGold(float coffeeSaleValue, float roll) => roll >= 0f && roll < TipChance ? coffeeSaleValue * tipGoldBonus : 0f;
+
+    private void RefreshEmployeeBuffs()
+    {
+        employeeBeanMultiplier = 1f + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.BeanGeneration) : 0f);
+        employeeSaleMultiplier = 1f + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.SalePrice) : 0f);
+        employeeFameMultiplier = 1f + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.FameXP) : 0f);
+        BrewingSpeedMultiplier = 1f + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.BrewingSpeed) : 0f);
+        employeeStorageMultiplier = 1f + (employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.BeanStorage) : 0f);
+        employeeCostReduction = employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.BeanCostReduction) : 0f;
+        employeeTicketChance = employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.TicketChance) : 0f;
+        employeeTipChance = employeeRoster != null ? employeeRoster.GetBuffBonus(EmployeeBuffType.TipChance) : 0f;
+        SetBeans(beans);
+    }
+
+    private void OnDestroy()
+    {
+        if (employeeRoster != null) employeeRoster.OnRosterChanged -= RefreshEmployeeBuffs;
+    }
+
     private void Awake()
     {
+        if (employeeRoster != null) employeeRoster.OnRosterChanged += RefreshEmployeeBuffs;
+        RefreshEmployeeBuffs();
         // Resolved in Awake so it's available when MobileSaveManager.Start loads the save.
         upgradeDataTable = GetComponent<UpgradeDataTable>();
         if (upgradeDataTable == null)
@@ -67,9 +124,9 @@ public class ResourceManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (beans < beanLimit)
+        if (beans < EffectiveBeanLimit)
         {
-            beans += beanRate * Time.deltaTime;
+            beans = Mathf.Min(EffectiveBeanLimit, beans + EffectiveBeanRate * Time.deltaTime);
             UpdateBeansText();
         }
     }
@@ -98,21 +155,12 @@ public class ResourceManagerScript : MonoBehaviour
 
     public void AddBeans(float amount)
     {
-        beans += amount;
-        if (beans > beanLimit)
-        {
-            beans = beanLimit;
-        }
-        UpdateBeansText();
+        SetBeans(beans + amount);
     }
 
     public void SetBeans(float amount)
     {
-        beans = amount;
-        if (beans > beanLimit)
-        {
-            beans = beanLimit;
-        }
+        beans = Mathf.Clamp(amount, 0f, EffectiveBeanLimit);
         UpdateBeansText();
     }
 
@@ -158,7 +206,7 @@ public class ResourceManagerScript : MonoBehaviour
 
     private void UpdateBeansText()
     {
-        beansText.text = beans.ToString("F0");
+        if (beansText != null) beansText.text = beans.ToString("F0");
     }
 
     private void UpdateTicketsText()
@@ -179,9 +227,9 @@ public class ResourceManagerScript : MonoBehaviour
     [Tooltip("Maximum ticket drop chance per sale (0-1).")]
     [SerializeField] private float maxTicketChance = 0.25f;
 
-    public float FameXPMultiplier => upgradeDataTable.fameBonusUpgrade.GetValue(upgradeData.fameBonusLevel);
+    public float FameXPMultiplier => upgradeDataTable.fameBonusUpgrade.GetValue(upgradeData.fameBonusLevel) * employeeFameMultiplier;
 
-    public float TicketChance => Mathf.Min(upgradeDataTable.ticketRateUpgrade.GetValue(upgradeData.ticketRateLevel), maxTicketChance);
+    public float TicketChance => Mathf.Clamp(upgradeDataTable.ticketRateUpgrade.GetValue(upgradeData.ticketRateLevel) + employeeTicketChance, 0f, maxTicketChance);
 
     // Recomputes all upgrade-derived stats from the current upgrade levels (call after loading or resetting).
     public void ApplyUpgradeEffects()
@@ -189,6 +237,7 @@ public class ResourceManagerScript : MonoBehaviour
         beanRate = upgradeDataTable.beanRateUpgrade.GetValue(upgradeData.beanRateLevel);
         beanLimit = upgradeDataTable.beanLimitUpgrade.GetValue(upgradeData.beanLimitLevel);
         sellPriceMultiplier = upgradeDataTable.sellPriceUpgrade.GetValue(upgradeData.sellPriceLevel);
+        SetBeans(beans);
     }
 
     public void TicketCheck()

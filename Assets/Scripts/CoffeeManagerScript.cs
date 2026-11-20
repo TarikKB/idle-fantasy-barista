@@ -23,7 +23,9 @@ public class CoffeeManagerScript : MonoBehaviour
     private LineScript lineManager;
 
     [SerializeField] private long brewStartTime = 0;
+    [SerializeField] private float brewDurationSeconds;
 
+    public float GetBrewDurationSeconds() => brewDurationSeconds;
     public long GetBrewStartTime() => brewStartTime;
     public bool IsBrewing() => brewing;
     public bool IsReadyToSell() => readyToSell;
@@ -157,15 +159,17 @@ public class CoffeeManagerScript : MonoBehaviour
 
     private void BrewCoffee()
     {
-        if (resourceManager.beans >= coffeeMakerData.beansRequired)
+        float beanCost = resourceManager.GetEffectiveBeanCost(coffeeMakerData);
+        if (resourceManager.beans >= beanCost)
         {
-            resourceManager.AddBeans(-coffeeMakerData.beansRequired);
+            resourceManager.AddBeans(-beanCost);
             brewing = true;
             readyToSell = false;
 
             brewStartTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            brewDurationSeconds = coffeeMakerData.brewTimeSeconds / resourceManager.GetBrewingSpeedMultiplier(coffeeMakerData);
 
-            StartBrewRoutine(coffeeMakerData.brewTimeSeconds, 0f);
+            StartBrewRoutine(brewDurationSeconds, 0f);
         }
     }
 
@@ -177,9 +181,9 @@ public class CoffeeManagerScript : MonoBehaviour
 
     private IEnumerator BrewProcessCoroutine(float remainingTime, float elapsedTime)
     {
-        float totalTime = coffeeMakerData.brewTimeSeconds;
+        float totalTime = brewDurationSeconds > 0f ? brewDurationSeconds : coffeeMakerData.brewTimeSeconds;
         float timer = elapsedTime;
-        int totalIcons = coffeeMakerData.icons != null ? coffeeMakerData.icons.Length : 0;
+        int totalIcons= coffeeMakerData.icons != null ? coffeeMakerData.icons.Length : 0;
 
         while (timer < totalTime)
         {
@@ -262,8 +266,9 @@ public class CoffeeManagerScript : MonoBehaviour
     //         }
     //     }
     // }
-    public void RestoreOfflineState(CMData offlineCoffeeMakerData, bool isBrewing, bool isReady, long startTime)
+    public void RestoreOfflineState(CMData offlineCoffeeMakerData, bool isBrewing, bool isReady, long startTime, float savedDuration = -1f)
     {
+        StopAllCoroutines();
         if (offlineCoffeeMakerData == null)
         {
             ClearCoffeeMakerSlot();
@@ -275,6 +280,9 @@ public class CoffeeManagerScript : MonoBehaviour
         brewing = isBrewing;
         readyToSell = isReady;
         brewStartTime = startTime;
+        if (savedDuration >= 0f)
+            brewDurationSeconds = savedDuration > 0f ? savedDuration : coffeeMakerData.brewTimeSeconds;
+        else if (brewDurationSeconds <= 0f) brewDurationSeconds = coffeeMakerData.brewTimeSeconds;
 
         if (readyToSell)
         {
@@ -301,14 +309,14 @@ public class CoffeeManagerScript : MonoBehaviour
             long elapsedTime =
                 currentTime - brewStartTime;
 
-            if (elapsedTime >= coffeeMakerData.brewTimeSeconds)
+            if (elapsedTime >= brewDurationSeconds)
             {
                 StartBrewRoutine(0f, elapsedTime);
             }
             else
             {
                 float remaining =
-                    coffeeMakerData.brewTimeSeconds - elapsedTime;
+                    brewDurationSeconds - elapsedTime;
 
                 StartBrewRoutine(remaining, elapsedTime);
             }
@@ -343,13 +351,14 @@ public class CoffeeManagerScript : MonoBehaviour
     {
         if (readyToSell)
         {
-            resourceManager.AddGold(coffeeMakerData.sellPrice);
+            float saleValue = coffeeMakerData.sellPrice * resourceManager.GetSellPriceMultiplier(coffeeMakerData);
             readyToSell = false;
+            resourceManager.AddGold(saleValue + resourceManager.GetTipGold(saleValue, UnityEngine.Random.value));
             currentIconIndex = 0;
             SetMakerSprite(currentIconIndex);
             lineManager.AddCustomerToLine();
             resourceManager.TicketCheck();
-            resourceManager.AddFameXP(10f * resourceManager.FameXPMultiplier);
+            resourceManager.AddFameXP(10f * resourceManager.GetFameXPMultiplier(coffeeMakerData));
             if (goldExplosionPrefab != null)
             {
                 Instantiate(goldExplosionPrefab, transform.position, goldExplosionPrefab.transform.rotation);
@@ -361,7 +370,7 @@ public class CoffeeManagerScript : MonoBehaviour
     public bool TryAutoBrew()
     {
         if (IsEmpty() || brewing || readyToSell) return false;
-        if (resourceManager.beans < coffeeMakerData.beansRequired) return false;
+        if (resourceManager.beans < resourceManager.GetEffectiveBeanCost(coffeeMakerData)) return false;
         BrewCoffee();
         return true;
     }

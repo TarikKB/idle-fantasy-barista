@@ -10,7 +10,95 @@ public class GCRosterManager : MonoBehaviour
 
     public event Action OnRosterChanged;
 
-    public bool TryGetOwned(GCData data, out OwnedCharacter owned)
+    public const int EmployeeSlotCount = 3;
+    [SerializeField] private GCData[] assignedEmployees = new GCData[EmployeeSlotCount];
+
+    public GCData GetAssignedEmployee(int slot) => slot >= 0 && slot < EmployeeSlotCount && slot < assignedEmployees.Length ? assignedEmployees[slot] : null;
+
+    public bool IsAssigned(GCData data) => data != null && System.Array.IndexOf(assignedEmployees, data) >= 0;
+
+    public bool TryToggleAssignment(GCData data)
+    {
+        if (data == null || GetLevel(data) <= 0) return false;
+        System.Array.Resize(ref assignedEmployees, EmployeeSlotCount);
+        int slot = System.Array.IndexOf(assignedEmployees, data);
+        if (slot >= 0) assignedEmployees[slot] = null;
+        else
+        {
+            slot = System.Array.IndexOf(assignedEmployees, null);
+            if (slot < 0) return false;
+            assignedEmployees[slot] = data;
+        }
+        OnRosterChanged?.Invoke();
+        return true;
+    }
+
+    public float GetBuffBonus(EmployeeBuffType type) => GetBuffBonus(type, null);
+
+    public float GetBuffBonus(EmployeeBuffType type, CMData machine)
+    {
+        float bonus = 0f;
+        for (int i = 0; i < EmployeeSlotCount; i++)
+        {
+            GCData data = GetAssignedEmployee(i);
+            if (data != null && data.BuffType == type && data.AppliesTo(machine))
+                bonus += data.GetBuffBonus(GetLevel(data));
+        }
+        return bonus;
+    }
+
+    public string GetTeamSummary()
+    {
+        var text = new System.Text.StringBuilder("Assigned staff: ");
+        for (int i = 0; i < EmployeeSlotCount; i++)
+        {
+            if (i > 0) text.Append(" | ");
+            GCData data = GetAssignedEmployee(i);
+            text.Append(data != null ? data.characterName : "Empty");
+        }
+        bool hasBuff = false;
+        for (int type = 0; type <= (int)EmployeeBuffType.SignatureRoast; type++)
+        {
+            GCData example = null;
+            for (int i = 0; i < EmployeeSlotCount; i++)
+            {
+                GCData data = GetAssignedEmployee(i);
+                if (data != null && (int)data.BuffType == type && data.GetBuffBonus(GetLevel(data)) > 0f)
+                { example = data; break; }
+            }
+            if (example == null) continue;
+            // Machine bonuses remain target-qualified; do not present them as global totals.
+            var targets = new HashSet<CMData>();
+            for (int i = 0; i < EmployeeSlotCount; i++)
+            {
+                GCData data = GetAssignedEmployee(i);
+                if (data == null || (int)data.BuffType != type || !targets.Add(data.TargetMachine)) continue;
+                float percent = GetBuffBonus(data.BuffType, data.TargetMachine) * 100f;
+                if (percent <= 0f) continue;
+                text.Append(hasBuff ? " | " : "\n");
+                hasBuff = true;
+                string label = data.BuffType switch
+                {
+                    EmployeeBuffType.BeanGeneration => "Beans",
+                    EmployeeBuffType.BrewingSpeed or EmployeeBuffType.EspressoVirtuoso => "Brew",
+                    EmployeeBuffType.SalePrice or EmployeeBuffType.HouseBlendExpert or EmployeeBuffType.ManaResonance => "Sales",
+                    EmployeeBuffType.FameXP or EmployeeBuffType.SignatureRoast => "Fame",
+                    EmployeeBuffType.BeanStorage => "Storage",
+                    EmployeeBuffType.BeanCostReduction or EmployeeBuffType.ArcaneEfficiency => "Bean cost",
+                    EmployeeBuffType.TicketChance => "Tickets",
+                    EmployeeBuffType.TipChance => "Tips",
+                    _ => "Buff"
+                };
+                if (data.IsMachineSpecialty) text.Append(data.TargetMachine.coffeeMakerName).Append(' ');
+                text.Append(label).Append(data.BuffType == EmployeeBuffType.BeanCostReduction || data.BuffType == EmployeeBuffType.ArcaneEfficiency ? " -" : " +");
+                text.Append(percent.ToString("0.#")).Append(data.BuffType == EmployeeBuffType.TicketChance ? " pp" : "%");
+                if (data.BuffType == EmployeeBuffType.TipChance) text.Append(" chance (+50% gold)");
+            }
+        }
+        if (!hasBuff) text.Append("\nNo active employee buffs");
+        return text.ToString();
+    }
+public bool TryGetOwned(GCData data, out OwnedCharacter owned)
     {
         owned = ownedCharacters.Find(c => c.data == data);
         return owned != null;
@@ -51,12 +139,18 @@ public class GCRosterManager : MonoBehaviour
     public void Clear()
     {
         ownedCharacters.Clear();
+        assignedEmployees = new GCData[EmployeeSlotCount];
         OnRosterChanged?.Invoke();
     }
 
     public RosterSaveData ToSaveData()
     {
         RosterSaveData saveData = new RosterSaveData();
+        for (int i = 0; i < EmployeeSlotCount; i++)
+        {
+            GCData data = GetAssignedEmployee(i);
+            saveData.assignedCharacterIds.Add(data != null ? data.id : "");
+        }
         foreach (OwnedCharacter owned in ownedCharacters)
         {
             if (owned.data == null || string.IsNullOrEmpty(owned.data.id)) continue;
@@ -86,6 +180,18 @@ public class GCRosterManager : MonoBehaviour
                 // Spend banked copies in case the cost table was rebalanced cheaper
                 TryLevelUp(owned);
                 ownedCharacters.Add(owned);
+            }
+        }
+
+        assignedEmployees = new GCData[EmployeeSlotCount];
+        if (database != null && saveData != null && saveData.assignedCharacterIds != null)
+        {
+            for (int i = 0; i < Mathf.Min(EmployeeSlotCount, saveData.assignedCharacterIds.Count); i++)
+            {
+                string id = saveData.assignedCharacterIds[i];
+                if (string.IsNullOrEmpty(id)) continue;
+                GCData data = database.GetById(id);
+                if (data != null && GetLevel(data) > 0 && !IsAssigned(data)) assignedEmployees[i] = data;
             }
         }
 

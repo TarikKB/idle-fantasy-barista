@@ -15,3 +15,7 @@ MonoBehaviour:
   id: t5_maid_tarik
   characterName: Maid Tarik
   tier: 5
+  buffType: 10
+  baseBonus: 0.1
+  bonusPerLevel: 0.04
+  targetMachine: {fileID: 11400000, guid: 9af0bc523a1148142bd453599ad11fcc, type: 2}
