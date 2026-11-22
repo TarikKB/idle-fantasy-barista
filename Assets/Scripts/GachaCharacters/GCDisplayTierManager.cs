@@ -9,11 +9,12 @@ public class GCDisplayTierManager : MonoBehaviour
     [SerializeField] private Transform unitDisplayGrid;
     private GridLayoutGroup gridLayout;
     private RectTransform gridRect;
-    [SerializeField] private Color commonUnit = new Color(0.86f, 0.86f, 0.86f);
-    [SerializeField] private Color rareUnit =  new Color(0.9f, 0.75f, 0.2f);
-    [SerializeField] private Color epicUnit = new Color(0.718f, 0.431f, 0.475f);
-    [SerializeField] private Color legendaryUnit = new Color(1f, 0.843f, 0f);
-    [SerializeField] private Color mythicalUnit = new Color(0.33f, 0f, 0.11f);
+    // Distinct cool/warm hues without relying on red-green differences.
+    [SerializeField] private Color commonUnit = new Color32(217, 221, 227, 255); // Silver
+    [SerializeField] private Color rareUnit = new Color32(86, 180, 233, 255); // Sky blue
+    [SerializeField] private Color epicUnit = new Color32(204, 121, 167, 255); // Violet
+    [SerializeField] private Color legendaryUnit = new Color32(230, 159, 0, 255); // Amber
+    [SerializeField] private Color mythicalUnit = new Color32(36, 59, 107, 255); // Deep blue
 
     [SerializeField] private Color errorColor = new Color(0f, 0f, 0f);
     [SerializeField] private int numUnitsPerTier = 4;
@@ -154,7 +155,8 @@ public class GCDisplayTierManager : MonoBehaviour
         }
 
         DestroyChildren();
-        Vector2 cellSize = CalculateCellSize(columns, rows);
+        // Keep staff frame dimensions consistent, even on the two-column Mythical page.
+        Vector2 cellSize = CalculateCellSize(regularColumns, regularRows);
         ApplyGridLayout(columns, cellSize);
 
         foreach (int tierId in tierIds)
