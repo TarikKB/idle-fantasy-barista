@@ -353,7 +353,7 @@ public class CoffeeManagerScript : MonoBehaviour
         {
             float saleValue = coffeeMakerData.sellPrice * resourceManager.GetSellPriceMultiplier(coffeeMakerData);
             readyToSell = false;
-            resourceManager.AddGold(saleValue + resourceManager.GetTipGold(saleValue, UnityEngine.Random.value));
+            resourceManager.AwardCoffeeRevenue(saleValue + resourceManager.GetTipGold(saleValue, UnityEngine.Random.value));
             currentIconIndex = 0;
             SetMakerSprite(currentIconIndex);
             lineManager.AddCustomerToLine();

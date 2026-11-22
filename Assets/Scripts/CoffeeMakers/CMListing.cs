@@ -41,7 +41,8 @@ public class CMListing : MonoBehaviour
                              $"Brew Time: {coffeeMakerData.brewTimeSeconds}s\n" +
                              $"Sell Price: ${coffeeMakerData.sellPrice}\n" +
                              $"Beans Required: {coffeeMakerData.beansRequired}\n" +
-                             $"Level Required: {coffeeMakerData.unlockLevel}";
+                             (MobileSaveManager.Instance != null && MobileSaveManager.Instance.Resources != null && MobileSaveManager.Instance.Resources.IsMachineUnlocked(coffeeMakerData)
+                                 ? "Permanently unlocked" : $"Unlock at Fame {coffeeMakerData.unlockLevel}");
             costText.text = $"Cost: ${coffeeMakerData.purchaseCost}";
         }
     }
@@ -51,7 +52,7 @@ public class CMListing : MonoBehaviour
         if (currentCoffeeMaker != null && coffeeMakerData != null)
         {
             // print($"Attempting to purchase {coffeeMakerData.coffeeMakerName} for ${coffeeMakerData.purchaseCost}");
-            if (resourceManager.gold >= coffeeMakerData.purchaseCost && resourceManager.fameLevel >= coffeeMakerData.unlockLevel)
+            if (resourceManager.gold >= coffeeMakerData.purchaseCost && resourceManager.IsMachineUnlocked(coffeeMakerData))
             {
                 if (currentCoffeeMaker.IsEmpty())
                 {

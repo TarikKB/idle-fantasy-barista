@@ -9,16 +9,28 @@ public class GCRosterManager : MonoBehaviour
     [SerializeField] private List<OwnedCharacter> ownedCharacters = new();
 
     public event Action OnRosterChanged;
+    public event Action BeforeRosterChanged;
+    public Func<int, GCData> AssignedEmployeeQuery { get; set; }
+    public Func<GCData, bool> ToggleAssignmentOverride { get; set; }
+    public GCData GetCharacterById(string id) => string.IsNullOrEmpty(id) || database == null ? null : database.GetById(id);
+    public void NotifyAssignmentsChanged() { OnRosterChanged?.Invoke(); }
 
     public const int EmployeeSlotCount = 3;
     [SerializeField] private GCData[] assignedEmployees = new GCData[EmployeeSlotCount];
 
-    public GCData GetAssignedEmployee(int slot) => slot >= 0 && slot < EmployeeSlotCount && slot < assignedEmployees.Length ? assignedEmployees[slot] : null;
+    public GCData GetAssignedEmployee(int slot) => AssignedEmployeeQuery != null ? AssignedEmployeeQuery(slot) :
+        slot >= 0 && slot < EmployeeSlotCount && slot < assignedEmployees.Length ? assignedEmployees[slot] : null;
 
-    public bool IsAssigned(GCData data) => data != null && System.Array.IndexOf(assignedEmployees, data) >= 0;
+    public bool IsAssigned(GCData data)
+    {
+        if (data == null) return false;
+        for (int i = 0; i < EmployeeSlotCount; i++) if (GetAssignedEmployee(i) == data) return true;
+        return false;
+    }
 
     public bool TryToggleAssignment(GCData data)
     {
+        if (ToggleAssignmentOverride != null) return ToggleAssignmentOverride(data);
         if (data == null || GetLevel(data) <= 0) return false;
         System.Array.Resize(ref assignedEmployees, EmployeeSlotCount);
         int slot = System.Array.IndexOf(assignedEmployees, data);
@@ -123,12 +135,14 @@ public bool TryGetOwned(GCData data, out OwnedCharacter owned)
 
     public void AddCharacter(GCData data)
     {
+        BeforeRosterChanged?.Invoke();
         AddCopy(data);
         OnRosterChanged?.Invoke();
     }
 
     public void AddCharacters(IEnumerable<GCData> characters)
     {
+        BeforeRosterChanged?.Invoke();
         foreach (GCData data in characters)
         {
             AddCopy(data);

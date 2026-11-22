@@ -6,7 +6,7 @@ public class ResourceManagerScript : MonoBehaviour
 {
     [Header("Gold")]
     public TextMeshProUGUI goldText;
-    public float gold {get; private set;}
+    public double gold {get; private set;}
     public float sellPriceMultiplier = 1f;
     [SerializeField] private InputAction increaseGoldKey;
     [SerializeField] private InputAction increaseBeansKey;
@@ -37,6 +37,15 @@ public class ResourceManagerScript : MonoBehaviour
 
     [Header("Machine Ownership")]
     public int purchasedMachineCount { get; private set; }
+    public event System.Action<int> FameChanged;
+    public event System.Action<double> CoffeeRevenueEarned;
+    public System.Func<CMData, bool> MachineUnlockQuery { get; set; }
+    public bool IsMachineUnlocked(CMData machine) => machine != null &&
+        (MachineUnlockQuery != null ? MachineUnlockQuery(machine) : fameLevel >= machine.unlockLevel);
+    public float MaxCostReduction => maxBeanCostReduction;
+    public float MaxTipChance => maxTipChance;
+    public float TipGoldBonus => tipGoldBonus;
+    public void AwardCoffeeRevenue(double amount) { AddGold(amount); CoffeeRevenueEarned?.Invoke(amount); }
 
     private void OnEnable()
     {
@@ -141,15 +150,17 @@ public class ResourceManagerScript : MonoBehaviour
         purchasedMachineCount = Mathf.Max(0, purchasedMachineCount - 1);
     }
 
-    public void AddGold(float amount)
+    public void AddGold(double amount)
     {
-        gold += amount;
+        if (double.IsNaN(amount) || double.IsInfinity(amount)) return;
+        gold = System.Math.Max(0, gold + amount);
         UpdateGoldText();
     }
 
-    public void SetGold(float amount)
+    public void SetGold(double amount)
     {
-        gold = amount;
+        if (double.IsNaN(amount) || double.IsInfinity(amount)) return;
+        gold = System.Math.Max(0, amount);
         UpdateGoldText();
     }
 
@@ -178,18 +189,21 @@ public class ResourceManagerScript : MonoBehaviour
 
     public void AddFameXP(float amount)
     {
+        if (float.IsNaN(amount) || float.IsInfinity(amount) || amount < 0) return;
         xp += amount;
-        if (xp >= fameXPThreshold)
+        while (xp >= fameXPThreshold)
         {
             xp -= fameXPThreshold;
             fameLevel++;
-            fameXPThreshold += fameXPScale;
+            fameXPThreshold = 100f + (fameLevel - 1) * fameXPScale;
         }
         UpdateFameText();
+        FameChanged?.Invoke(fameLevel);
     }
     public void SetFameLevel(int level)
     {
-        fameLevel = level;
+        fameLevel = Mathf.Max(1, level);
+        fameXPThreshold = 100f + (fameLevel - 1) * fameXPScale;
         UpdateFameText();
     }
 
@@ -234,9 +248,10 @@ public class ResourceManagerScript : MonoBehaviour
     // Recomputes all upgrade-derived stats from the current upgrade levels (call after loading or resetting).
     public void ApplyUpgradeEffects()
     {
-        beanRate = upgradeDataTable.beanRateUpgrade.GetValue(upgradeData.beanRateLevel);
-        beanLimit = upgradeDataTable.beanLimitUpgrade.GetValue(upgradeData.beanLimitLevel);
-        sellPriceMultiplier = upgradeDataTable.sellPriceUpgrade.GetValue(upgradeData.sellPriceLevel);
+        if (upgradeData == null) upgradeData = new UpgradeData();
+        beanRate = UpgradeRules.BeanRate.GetValue(upgradeData.beanRateLevel);
+        beanLimit = UpgradeRules.BeanLimit.GetValue(upgradeData.beanLimitLevel);
+        sellPriceMultiplier = UpgradeRules.SalePrice.GetValue(upgradeData.sellPriceLevel);
         SetBeans(beans);
     }
 

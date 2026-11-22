@@ -145,6 +145,14 @@ public class MenuManagerScript : MonoBehaviour
         }
     }
 
+    public void PrepareForLocationChange()
+    {
+        CloseActivePanel();
+        pendingSellTarget = null;
+        sellMode = false;
+        if (sellModeButton != null) sellModeButton.color = Color.white;
+    }
+
     public void ConfirmSellMachine()
     {
         if (pendingSellTarget != null && pendingSellTarget.TrySellMachine())

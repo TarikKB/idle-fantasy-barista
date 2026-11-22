@@ -19,6 +19,14 @@ public class GCDisplayTierManager : MonoBehaviour
     [SerializeField] private Color errorColor = new Color(0f, 0f, 0f);
     [SerializeField] private int numUnitsPerTier = 4;
     [SerializeField] private GCRosterManager roster;
+    [SerializeField] private FranchiseManager franchise;
+    private string assignmentLocationId;
+    public void SetAssignmentLocation(string locationId)
+    {
+        assignmentLocationId = locationId;
+        needsRefresh = true;
+        if (isActiveAndEnabled) { needsRefresh = false; PopulateTier(1, 2); }
+    }
     [SerializeField] private TMPro.TextMeshProUGUI employeeTeamText;
     [Header("Collection Paging")]
     [SerializeField] private UnityEngine.UI.Button previousPageButton;
@@ -327,6 +335,8 @@ public class GCDisplayTierManager : MonoBehaviour
         GCCell cell = cellObj.GetComponent<GCCell>();
         cell.Setup(data, bgColor, level, copies, copiesNeeded);
         cell.SetupAssignment(data, roster, unitDisplayGrid != summonResultDisplay);
+        if (franchise != null && franchise.Ready && unitDisplayGrid != summonResultDisplay)
+            cell.SetupLocationAssignment(franchise, string.IsNullOrEmpty(assignmentLocationId) ? franchise.Active.id : assignmentLocationId);
     }
 
     private Color GetTierColor(int rowTier)

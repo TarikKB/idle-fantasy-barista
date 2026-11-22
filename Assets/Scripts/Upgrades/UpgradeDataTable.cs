@@ -44,62 +44,16 @@ public class UpgradeDataTable : MonoBehaviour
         resourceManager = FindFirstObjectByType<ResourceManagerScript>();
         // upgradeData = resourceManager.upgradeData;
 
-        // Idle-game standard: exponential cost growth of 1.07-1.15 per level, linear effect growth.
-
-        // Core income driver (beans are the production bottleneck). +0.25 beans/s per level.
-        beanRateUpgrade = new UpgradeLevelData
-        {
-            baseCost = 10.0f,
-            costMultiplier = 1.15f,
-            baseValue = 1.0f,
-            valueScale = 0.25f
-        };
+        beanRateUpgrade = UpgradeRules.BeanRate;
         beanRateListing.upgradeLevelData = beanRateUpgrade;
-
-
-        // Storage cap (mainly governs offline/idle accumulation). +25 beans per level, gentler curve.
-        beanLimitUpgrade = new UpgradeLevelData
-        {
-            baseCost = 15.0f,
-            costMultiplier = 1.12f,
-            baseValue = 100.0f,
-            valueScale = 25.0f
-        };
+        beanLimitUpgrade = UpgradeRules.BeanLimit;
         beanLimitListing.upgradeLevelData = beanLimitUpgrade;
-        // beanLimitListing.currentLevel = resourceManager.upgradeData.beanLimitLevel;
-
-        // Global income multiplier. +10% sell price per level.
-        sellPriceUpgrade = new UpgradeLevelData
-        {
-            baseCost = 50.0f,
-            costMultiplier = 1.15f,
-            baseValue = 1.0f,
-            valueScale = 0.10f
-        };
+        sellPriceUpgrade = UpgradeRules.SalePrice;
         sellPriceListing.upgradeLevelData = sellPriceUpgrade;
-        // sellPriceListing.currentLevel = resourceManager.upgradeData.sellPriceLevel;
-
-        // Premium-currency drop chance. 1% base, +0.5% per level, steeper curve since tickets are premium.
-        ticketRateUpgrade = new UpgradeLevelData
-        {
-            baseCost = 100.0f,
-            costMultiplier = 1.20f,
-            baseValue = 0.01f,
-            valueScale = 0.005f
-        };
+        ticketRateUpgrade = UpgradeRules.Tickets;
         ticketRateListing.upgradeLevelData = ticketRateUpgrade;
-        // ticketRateListing.currentLevel = resourceManager.upgradeData.ticketRateLevel;
-
-        // Fame XP multiplier. +10% XP per level.
-        fameBonusUpgrade = new UpgradeLevelData
-        {
-            baseCost = 75.0f,
-            costMultiplier = 1.15f,
-            baseValue = 1.0f,
-            valueScale = 0.10f
-        };
+        fameBonusUpgrade = UpgradeRules.Fame;
         fameBonusListing.upgradeLevelData = fameBonusUpgrade;
-        // fameBonusListing.currentLevel = resourceManager.upgradeData.fameBonusLevel;
     }
 
     public void GetData()

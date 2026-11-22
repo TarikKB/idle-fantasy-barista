@@ -12,6 +12,23 @@ public class GCCell : MonoBehaviour
     [SerializeField] private TextMeshProUGUI assignmentText;
     private GCRosterManager roster;
     private GCData character;
+    private FranchiseManager franchise;
+    private string destinationId;
+
+    public void SetupLocationAssignment(FranchiseManager manager, string locationId)
+    {
+        franchise = manager;
+        destinationId = locationId;
+        if (manager == null || !manager.Ready || character == null || assignmentButton == null || !assignmentButton.gameObject.activeSelf) return;
+        var employer = manager.Employer(character);
+        var destination = manager.GetLocation(locationId);
+        bool owned = roster != null && roster.GetLevel(character) > 0;
+        bool assignedHere = employer != null && employer == destination;
+        bool space = manager.HasSpace(destination);
+        assignmentButton.interactable = owned && (assignedHere || space);
+        if (assignmentText != null) assignmentText.text = !owned ? "Not owned" : assignedHere ? "Remove" : !space ? "Team full" : employer != null ? "Transfer" : "Assign";
+        if (buffText != null && owned) buffText.text += "\n" + (employer == null ? "Available" : "Working at " + employer.name);
+    }
 
     public void SetupAssignment(GCData data, GCRosterManager employeeRoster, bool allowAssignment)
     {
@@ -38,7 +55,8 @@ public class GCCell : MonoBehaviour
 
     private void ToggleAssignment()
     {
-        if (roster != null) roster.TryToggleAssignment(character);
+        if (franchise != null && franchise.Ready) franchise.RequestAssignment(character, destinationId);
+        else if (roster != null) roster.TryToggleAssignment(character);
     }
 
     // copiesNeededof -1 means max level
